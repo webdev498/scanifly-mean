@@ -1,0 +1,69 @@
+<section class="section-projects">
+	<projects-header></projects-header>
+</section>
+
+<section class="row section login-container">
+
+	<div class="container">
+		<div class="row">
+			<div class="dashboard-body">
+				<div class="col-md-3 right-border">
+					<h3>SETTINGS</h3>
+
+					<a data-ui-sref="profile">Edit Profile</a> <br>
+					<div data-ng-if="acl.hasAccess('edit-company')">
+						Edit Company
+					</div>
+					<a data-ui-sref="password">Change Password</a> <br>
+					<div data-ng-if="acl.hasAccess('billing')">
+						<a data-ui-sref="billing">Billing</a>
+					</div>
+				</div>
+
+			<div class="col-md-9">
+				<div>
+					<h3>EDIT COMPANY</h3>
+				</div>
+
+				<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2 login-form-container">
+					<form name="companyForm" data-ng-submit="updateCompanyProfile(companyForm)" data-ng-class="{'submitted': error}" class="signin form-horizontal" novalidate autocomplete="off">
+
+						<fieldset class="company-details">
+							<div class="form-group">
+								<input type="text" data-ng-required="true" id="name" name="name" class="form-control" data-ng-model="user.company.name" placeholder="Name" data-ng-maxlength="50" maxlength="50">
+							</div>
+							<div class="form-group">
+								<select class="form-control" data-ng-model="user.company.softwareDetails.software">
+									<option value="" disabled="disabled" selected="selected">-- Which Cad Software Are You Using? --</option>
+									<option value="AutoCAD">AutoCAD</option>
+									<option value="Draftsight">Draftsight</option>
+									<option value="other">Other</option>
+								</select>
+							</div>
+							<div class="form-group" data-ng-show="user.company.softwareDetails.software == 'other'">
+								<label>Other CAD Software</label>
+								<input type="text" data-ng-required="false" id="otherCadSoftware" name="otherCadSoftware" class="form-control" data-ng-model="user.company.softwareDetails.otherCadSoftware" placeholder="Other CAD Software" data-ng-maxlength="50" maxlength="50">
+							</div>
+							<div class="form-group">
+								<label>Software year</label>
+								<input type="text" data-ng-required="false" id="softwareYear" name="softwareYear" class="form-control" data-ng-model="user.company.softwareDetails.softwareYear" placeholder="e.g. 2014" data-ng-pattern="/^[0-9+(). ]*$/" data-ng-minlength="4" data-ng-maxlength="4" maxlength="4">
+							</div>
+							<div class="text-center form-group button-container">
+								<button type="submit" class="btn btn-primary">Save Company</button>
+							</div>
+
+							<div data-ng-show="error" class="bg-danger">
+								{{ error }}
+							</div>
+
+							<div data-ng-show="success" class="bg-success">
+								{{ success }}
+							</div>
+
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

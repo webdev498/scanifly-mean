@@ -1,0 +1,130 @@
+.where-we-scan-container {
+  padding-bottom: 100px;
+}
+.where-we-scan-container .title, .where-we-scan-container .subtitle, .where-we-scan-container .legend {
+  float: none;
+}
+.where-we-scan-container .section-map {
+  clear: both;
+  float: none;
+}
+
+.where-we-scan-container .cta-text {
+  font-size: 18px;
+  margin-top: 40px;
+}
+.where-we-scan-container .cta-text a {
+  font-weight: 700;
+
+}
+.where-we-scan-container .cta-text a:hover {
+  color: #76CDFB;
+}
+.where-we-scan-container .legend {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.where-we-scan-container .legend li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 41px;
+  font-size: 18px;
+  position: relative;
+}
+.where-we-scan-container .legend li:before {
+  position: absolute;
+  left: -30px;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  display: block;
+  z-index: 9;
+  content: "";
+
+}
+.where-we-scan-container .legend li:first-child:before {
+  background: #49d574;
+}
+.where-we-scan-container .legend li:last-child:before {
+  background: #005a8b;
+}
+
+.where-we-scan-container .legend li:last-child {
+  margin-right: 0;
+}
+
+.where-we-scan-container .section-map .ng-scope {
+  width: 900px;
+  margin: 0 auto;
+}
+div[us-map] {
+  width: 900px!important;
+  height: 600px;
+  overflow: hidden;
+}
+
+div[us-map] path {
+  cursor: default !important;
+}
+
+@media(max-width: 990px) {
+  .where-we-scan-container .section-map .ng-scope {
+    width: 700px;
+  }
+  div[us-map] {
+    width: 700px!important;
+    height: 450px;
+  }
+}
+@media(max-width: 767px) {
+  .where-we-scan-container .section-map .ng-scope {
+    width: 640px;
+  }
+  div[us-map] {
+    width: 640px!important;
+    height: 420px;
+  }
+}
+@media(max-width: 640px) {
+  .where-we-scan-container .section-map .ng-scope {
+    width: 500px;
+  }
+  div[us-map] {
+    width: 500px!important;
+    height: 350px;
+  }
+}
+@media(max-width: 560px) {
+  .where-we-scan-container .section-map .ng-scope {
+    width: 400px;
+  }
+  div[us-map] {
+    width: 400px!important;
+    height: 250px;
+  }
+}
+
+@media(max-width: 420px) {
+  .where-we-scan-container .section-map .ng-scope {
+    width: 320px;
+  }
+  div[us-map] {
+    width: 320px!important;
+    height: 200px;
+  }
+  svg {
+    margin-left: 25px;
+  }
+  .where-we-scan-container .legend li {
+    font-size: 16px;
+    margin: 0 20px;
+  }
+  .where-we-scan-container .legend li:before {
+    position: absolute;
+    left: -21px;
+    top: 3px;
+    width: 15px;
+    height: 15px;
+
+  }
+}

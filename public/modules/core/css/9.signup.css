@@ -1,0 +1,83 @@
+.signup-container.section {
+    padding-top: 0;
+    padding-bottom: 170px;
+}
+
+.signup-container .form-info {
+    margin-bottom: 28px;
+}
+.signup-container .form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 18px;
+}
+.signup-container .title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #fff;
+}
+.signup-form-container {
+    border: 1px solid #C8C8C8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 30px 40px 50px;
+}
+.signup-container .teasing-list ul {
+    list-style: none;
+    padding-left: 0;
+    clear: both;
+    text-align: left;
+}
+.signup-container .teasing-list .col-md-12 {
+    padding-left: 0;
+    font-weight: 500;
+    font-size: 21px;
+    text-align: left;
+}
+.signup-container .teasing-list ul li {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 22px;
+    position: relative;
+}
+.signup-container .teasing-list ul li span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.signup-container .teasing-list ul li .icon {
+    font-size: 36px;
+    margin-right: 15px;
+}
+
+.signup-container .teasing-list .cta-text {
+    font-size: 16px;
+    text-align: left;
+}
+.signup-container .teasing-list .cta-text a {
+    font-weight: 700;
+}
+.signup-container .checkbox-container {
+    margin-bottom: 30px;
+}
+.signup-container .checkbox-container label {
+    font-weight: 500;
+}
+.signup-container .button-container .btn {
+    min-width: 190px;
+}
+
+
+@media(max-width: 480px) {
+
+    .signup-container .teasing-list ul li {
+        font-size: 16px;
+    }
+    .checkbox-container input[type="checkbox"], .checkbox-container label {
+        float: left;
+    }
+    .checkbox-container label {
+        width: 80%;
+        margin-left: 10px;
+    }
+}

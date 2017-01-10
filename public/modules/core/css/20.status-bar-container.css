@@ -1,0 +1,131 @@
+.status-bar-container {
+    text-align: center;
+    font-size: 0;
+    margin-top: 65px;
+    margin-bottom: 80px;
+}
+.status-bar-container .status-icon:first-child {
+    width: 5%;
+    min-width: 38px;
+}
+.status-bar-container .status-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16%;
+    text-align: right;
+    position: relative;
+
+}
+.status-bar-container .status-icon p {
+    font-size: 14px;
+    position: absolute;
+    top: 43px;
+    text-align: center;
+    right: -46px;
+    width: 124px;
+    color: #005a8b;
+
+}
+
+.status-bar-container .status-icon:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    border-top: 3px solid #c6c6c6;
+    display: block;
+    top: 50%;
+    margin-top: -1.5px;
+}
+.status-bar-container .status-resolution-required:before {
+    border-top-style: dashed;
+}
+.status-bar-container .status-icon:first-child:before {
+    display: none;
+}
+.status-bar-container .status-icon:last-child {
+    margin-right: 0;
+}
+.status-bar-container .status-icon span {
+    color: #ffffff;
+    font-size: 26px;
+    display: inline-block;
+    position: relative;
+    z-index: 9;
+}
+.status-bar-container .status-icon span:after {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #c6c6c6;
+    z-index: -1;
+    right: -7px;
+    top: -10px;
+    text-align: center;
+}
+.status-bar-container .status-icon .icon-assessment-complete:after, .status-bar-container .status-icon .icon-resolution-required:after {
+    right: -13px;
+}
+.status-bar-container .status-icon .icon-flight-scheduled:after {
+    right: -11px;
+}
+.status-bar-container .status-icon .icon-view-in-scanifly3D-white:after {
+    right: -6px;
+}
+.status-icon.step-completed:before {
+    background: #49d574;
+    border-color: #49d574;
+}
+.status-icon.step-completed > p {
+    font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
+}
+.status-icon.step-completed span:after {
+    background: #49d574;
+}
+@media(max-width: 990px) {
+    .status-bar-container .status-icon {
+        width: 18%;
+    }
+    .status-bar-container .status-icon p {
+
+        right: -32px;
+        width: 94px;
+
+    }
+}
+@media(max-width: 767px) {
+    .status-bar-container .status-icon {
+        width: 17%;
+    }
+}
+@media(max-width: 640px) {
+    .status-bar-container .status-icon p {
+        display: none;
+    }
+    .status-bar-container {
+        margin-bottom: 70px;
+        margin-top: 50px;
+    }
+}
+@media(max-width: 480px) {
+    .status-bar-container {
+        margin-top: 70px;
+    }
+    .status-bar-container .status-icon p {
+        display: block;
+        width: 122px;
+        right: -25px;
+    }
+    .status-bar-container .status-icon {
+        display: none!important;
+    }
+    .status-bar-container .status-icon.step-completed.current-step {
+        display: inline-block!important;
+        text-align: center;
+    }
+    .status-bar-container .status-icon.step-completed.current-step:before {
+        display: none;
+    }
+}

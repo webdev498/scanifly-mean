@@ -1,0 +1,29 @@
+<section class="section-projects">
+	<projects-header></projects-header>
+</section>
+
+<section class="row section login-container">
+	
+	<div class="container">
+		<div class="row">
+			<div class="dashboard-body">
+				<div class="col-md-3 right-border">
+					<h3>SETTINGS</h3>
+					
+					<a data-ui-sref="profile">Edit Profile</a> <br>
+					<div data-ng-if="acl.hasAccess('edit-company')">
+						<a data-ui-sref="company">Edit Company</a>
+					</div>
+					<a data-ui-sref="password">Change Password</a> <br>
+					<div data-ng-if="acl.hasAccess('billing')">
+						<a data-ui-sref="billing">Billing</a>
+					</div>
+				</div>
+				<div>
+					<div id="settings-content" data-ng-include="profile">GOODBYE WORLD!</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

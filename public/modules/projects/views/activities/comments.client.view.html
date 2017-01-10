@@ -1,0 +1,13 @@
+<p>
+    <span class="date-container display-block">{{activity.createdAt | date:'MM.dd.yyyy'}}</span>
+    <span class="icon-container"><i class="icon-note-added"></i></span>
+    <span class="text-under">
+        <span data-ng-show="(authentication.user._id != activity.postedBy._id) && activity.postedBy.role !== 'scanifly-admin'">{{activity.postedBy.name}} from <span class="bold">{{activity.company.name}}</span></span>
+        <span data-ng-show="(authentication.user._id != activity.postedBy._id) && activity.postedBy.role === 'scanifly-admin'">{{activity.postedBy.name}} from <span class="bold">Scanifly</span></span>
+        <span data-ng-show="authentication.user._id == activity.postedBy._id">you</span>
+
+        commented on <a data-ui-sref="project-details({projectId: '{{activity.project._id}}'})" class="bold">{{activity.project.name}}</a>.
+    </span>
+
+</p>
+

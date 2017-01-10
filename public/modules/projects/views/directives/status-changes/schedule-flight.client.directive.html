@@ -1,0 +1,44 @@
+<div class="flight-schedule-action">
+    <form class="form-horizontal clearfix" name="scheduleFlight" id="scheduleFlight" data-ng-show="showSchedulePanel" data-ng-submit="schedule()" novalidate>
+        <div class="form-group pull-left col-md-5 col-sm-5 col-xs-5 datepicker-container">
+            <div class="controls clearfix">
+                <input type="text" data-ng-model="data.date"
+                       class="form-control date-input"
+                       datepicker-popup="MM.dd.yyyy"
+                       data-ng-model="dt"
+                       data-is-open="opened"
+                       data-min-date="minDate"
+                       data-datepicker-options="dateOptions"
+                       data-ng-required="true"
+                       data-close-text="Close"
+                       show-weeks="false"
+                       placeholder="Select date"
+                       data-ng-click="open($event)"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)">
+                        <i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 hour-container">
+            <div class="controls">
+                <select data-ng-model="data.time" class="form-control" data-ng-required="true">
+                    <option value="" disabled="disabled" selected="selected">-- Select hour --</option>
+                    <option data-ng-repeat="hour in [] | range:6:21" value="{{hour}}">{{(hour % 12) === 0 ? '12' : (hour % 12)}}:00 {{hour < 12 ? 'am' : 'pm'}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-3 col-xs-3 pull-right button-container">
+            <input type="submit" class="btn btn-green" value="Schedule Flight" data-ng-class="{'disabled':scheduleFlight.$invalid}">
+        </div>
+    </form>
+
+    <div data-ng-hide="showSchedulePanel">
+        <a href type="button" class="btn btn-green schedule-flight-btn" data-ng-click="toggleSchedulePanel()">Schedule Flight</a>
+        <a href type="button" class="btn btn-primary schedule-flight-btn" title="" data-ng-click="declineProject()">Decline Project</a>
+
+    </div>
+
+
+
+</div>

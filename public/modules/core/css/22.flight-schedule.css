@@ -1,0 +1,77 @@
+.flight-schedule-action {
+    text-align: right;
+}
+.flight-schedule-action .schedule-flight-btn {
+    margin-left: 20px;
+}
+.flight-schedule-action .controls .date-input {
+    float: left;
+    width: 79%;
+    height: 36px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.flight-schedule-action .input-group-btn button, .flight-schedule-action .controls select {
+    height: 36px;
+}
+.flight-schedule-action .controls .input-group-btn {
+    float: left;
+}
+
+.flight-schedule-action .datepicker-container {
+    padding-right: 10px!important;
+}
+.flight-schedule-action .hour-container {
+    padding-right: 10px!important;
+}
+
+@media(max-width: 767px) {
+    .view-project .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+}
+@media(max-width: 480px) {
+    .flight-schedule-action {
+        text-align: center;
+    }
+    .flight-schedule-action .hour-container {
+        padding-right: 0 !important;
+    }
+    .flight-schedule-action .datepicker-container {
+        padding-right: 15px !important;
+    }
+    .flight-schedule-action .datepicker-container, .flight-schedule-action .hour-container {
+        width: 50%;
+    }
+    .flight-schedule-action .button-container {
+        float: none !important;
+        clear: left;
+    }
+
+}
+@media(max-width: 360px) {
+
+    .flight-schedule-action .hour-container, .flight-schedule-action .datepicker-container{
+        width: 100%;
+    }
+    .flight-schedule-action .datepicker-container .controls input {
+        width: 92%;
+    }
+
+    .flight-schedule-action .button-container {
+        float: none !important;
+        clear: left;
+        width: 100%;
+    }
+    .flight-schedule-action .button-container input {
+        width: 100%;
+    }
+    .flight-schedule-action .schedule-flight-btn {
+        margin-left: 0;
+    }
+
+
+}

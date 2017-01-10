@@ -1,0 +1,61 @@
+<section class="section-projects">
+	<projects-header></projects-header>
+</section>
+
+<section class="row section login-container">
+	
+	<div class="container">
+		<div class="row">
+			<div class="dashboard-body">
+				<div class="col-md-3 right-border">
+					<h3 class="create-user-title">CREATE NEW USER</h3>
+					<p class="form-info">Please fill in the form below. All fields are mandatory.</p>
+					<div data-ng-include="'modules/users/views/settings/user-management/form.client.view.html'"></div>
+				</div>
+				<div class="col-md-9 manage-users-container">
+					<h3 class="create-user-title">MANAGE USERS</h3>
+					<div data-ng-init="listUsers()">
+						<table datatable="ng" class="row-border hover dataTable responsive" dt-options="dtOptions">
+							<thead>
+								<th class="all"><span>Name</span></th>
+                                <th><span>Email</span></th>
+                                <th><span data-ng-if="acl.hasAccess('user-management-customerType')">User Type</span></th>
+								<th class="all"></th>
+							</thead>
+							<tbody data-ng-show="users.$resolved && users.length">
+								<tr data-ng-repeat="userDetails in users">
+									<td>
+										<strong>{{userDetails.name}}</strong>
+									</td>
+                                    <td>
+                                        {{userDetails.email}}
+                                    </td>
+                                    <td class="text-capitalize">
+										<span data-ng-if="acl.hasAccess('user-management-customerType')">{{userDetails.role | formatRole}}</span>
+									</td>
+									<td class="text-right">
+										<a class="btn btn-primary"
+										   data-ng-hide="userDetails.status === 'deleted'"
+										   data-ng-click="removeUser(userDetails._id);">
+											REMOVE
+										</a>
+
+										<span class="text-danger" data-ng-show="userDetails.status === 'deleted'">
+										   Inactive &nbsp;
+											<a class="btn btn-primary"
+											   data-ng-click="activateUser(userDetails._id);">
+												ACTIVATE
+											</a>
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+</section>

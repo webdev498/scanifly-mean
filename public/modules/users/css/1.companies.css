@@ -1,0 +1,61 @@
+.company-details label {
+    float: left;
+    font-weight: 400;
+}
+.company-title {
+    display: inline-block;
+}
+.action-button {
+}
+.expandable-row-child {
+    margin-bottom: 5px;
+    height: 35px!important;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ddd;
+    width: calc(100% + 10px);
+}
+.expandable-row-child .btn-project-delete{
+    height: 100%;
+    font-size: 12px;
+    vertical-align: middle;
+    text-align: center;
+}
+.expandable-row-child .btn-view-project{
+    height: 100%;
+    font-size: 12px;
+    vertical-align: middle;
+    text-align: center;   
+    margin-right: 10px;
+}
+ .project_detail_icon{
+    padding-top: 5px;
+    display: block;
+ }
+.project_detail_caption{
+    font-style: italic;
+    font-weight: 700;
+    /*border: none;*/
+}
+
+.expandable-row-child .admins-container {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 30px 15px 0;
+}
+.expandable-row-child .software-info-container {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.category-header {
+	color: #8F8F8F;
+	text-align: center;
+}
+
+.data-cell {
+	text-align: center;
+}
+
+.grey-col {
+	background-color: #F3F3F3;
+}

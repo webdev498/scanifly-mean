@@ -1,0 +1,20 @@
+<p>
+    <span class="pull-left">
+        <span class="date-container display-block">{{activity.createdAt | date:'MM.dd.yyyy'}}</span>
+        <span class="icon-container">
+            <!-- <i class="icon-flight-scheduled"></i> -->
+            <i class="icon-{{activity.status}}" data-ng-show="activity.status != 'upload-complete'"></i>
+            <i class="icon-view-in-scanifly3D-blue" data-ng-show="activity.status == 'upload-complete'"></i>
+        </span>
+    </span>
+
+    <span class="text-under pull-left">
+        <span data-ng-show="(authentication.user._id != activity.postedBy._id) && activity.postedBy.role !== 'scanifly-admin'">{{activity.postedBy.name}} from <span class="bold">{{activity.company.name}}</span></span>
+        <span data-ng-show="(authentication.user._id != activity.postedBy._id) && activity.postedBy.role === 'scanifly-admin'">{{activity.postedBy.name}} from <span class="bold">Scanifly</span></span>
+        <span data-ng-show="authentication.user._id == activity.postedBy._id">you</span>
+
+        changed the status of <a data-ui-sref="project-details({projectId: '{{activity.project._id}}'})" class="bold">{{activity.project.name}}</a> to <span class="text-capitalize"><span data-ng-show="activity.status == 'flight-successful'">Flight Completed</span><span data-ng-show="activity.status == 'upload-complete'">View in Scanifly3D</span><span data-ng-show="activity.status != 'flight-successful' && activity.status != 'upload-complete'">{{activity.status | removeDash}}</span>.</span>
+    </span>
+
+</p>
+

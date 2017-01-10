@@ -1,0 +1,77 @@
+<div class="col-md-6 col-md-offset-1">
+    <p>Coordinates</p>
+    <div class="form-group pull-left col-md-5 col-sm-5 col-xs-5 col-xxs-12">
+        <div class="controls">
+            <input type="text" block-enter data-ng-model="data.latitude" id="latitude" class="form-control" placeholder="Latitude" data-ng-maxlength="30" maxlength="30">
+        </div>
+    </div>
+
+    <div class="form-group pull-left col-md-5 col-sm-5 col-xs-5 col-xxs-12">
+        <div class="controls">
+            <input type="text" block-enter data-ng-model="data.longitude" id="longitude" class="form-control" placeholder="Longitude" data-ng-maxlength="30" maxlength="30">
+        </div>
+    </div>
+
+    <div class="form-group col-md-2 col-sm-2 col-xs-2 col-xxs-12 pull-right">
+        <input type="button" data-ng-click="renderMap()" class="btn btn-primary" value="Get Map" data-ng-disabled="(data.latitude.length && data.longitude.length) ? false : true">
+    </div>
+
+    <div class="form-group col-md-12">
+        <span>Don't know the Lat and Long? <a href="http://latlong.net/" target="_blank">Click here!</a></span>
+    </div>
+
+    <div id="map_canvas" class="map-container">
+        <ui-gmap-google-map center="data.map.center" zoom="data.map.zoom" draggable="true" options="data.map.options">
+            <ui-gmap-marker data-ng-repeat="marker in data.map.markers" coords="marker.coords" options="marker.options" idkey="marker.id">
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+
+    <div class="cordinates-container">
+        <span>Latitude {{data.map.center.latitude | number:4 }}</span>
+        <span>Longitude {{data.map.center.longitude | number:4 }}</span>
+        <span>Zoom {{data.map.zoom}}</span>
+    </div>
+
+    <div class="add-markers">
+        <p class="marker-label">Place a marker over the building(s) you want 3D scanned</p>
+        <button class="btn btn-primary" type="button" data-ng-click="addMarker()">Add Marker</button>
+    </div>
+
+    <div class="markers-container">
+        <label>Marker(s):</label>
+
+        <div data-ng-repeat="marker in data.map.markers" class="marker">
+            <span>{{ marker.name }}</span>
+            <i data-ng-if="$last" data-ng-click="removeMarker(marker.id)">X</i>
+        </div>
+
+        <div class="col-md-12 property_detail clearfix">
+            <p>Property Details</p>
+            <div class="checkbox-container form-group pull-left col-md-12 col-sm-12 col-xs-12">
+                <input type="checkbox" data-ng-model="data.nearTrees" id="nearTress" class="controls form-control"/>
+                <label>
+                    The property has a lot of trees.
+                    <i class="icon-trees icon-size-w-35 icon-grey" data-ng-class="{'icon-blue':data.nearTrees}"></i>
+                </label>
+            </div>
+            <div class="checkbox-container form-group pull-left col-md-12 col-sm-12 col-xs-12">
+                <input type="checkbox" data-ng-model="data.nearAirport" id="nearAirport" class="controls form-control"/>
+                <label>
+                    The property is within 1 mile radius from an airport.
+                    <i class="icon-airport icon-size-w-35 icon-grey" data-ng-class="{'icon-blue':data.nearAirport}"></i>
+                </label>
+            </div>
+            <div class="checkbox-container form-group pull-left col-md-12 col-sm-12 col-xs-12">
+                <input type="checkbox" data-ng-model="data.nearHighway" id="nearHighway" class="controls form-control"/>
+                <label>
+                    The property is near an interstate highway or a main road.
+                    <i class="icon-highway icon-size-w-35 icon-grey" data-ng-class="{'icon-blue':data.nearHighway}"></i>
+                </label>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

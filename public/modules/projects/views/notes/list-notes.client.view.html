@@ -1,0 +1,20 @@
+<div class="container notes-container" data-ng-controller="NotesController">
+	<h3>Notes</h3>
+	<div class="row">
+		<div data-ng-include="'modules/projects/views/notes/add-note-form.client.view.html'"></div>
+		
+		<div data-ng-init="find()" class="posted-notes col-md-12">
+			<hr />
+			<ul data-ng-show="notes.$resolved && notes.length">
+				<li data-ng-repeat="note in notes" class="note">
+					<p class="author">
+						<b>{{note.postedBy.name}} added a note - {{note.createdAt | date: 'MM.dd.yyyy'}}</b>
+					</p>
+                    <pre class="format-note">
+                        <p>{{note.note}}</p>
+                    </pre>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

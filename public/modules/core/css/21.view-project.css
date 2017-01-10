@@ -1,0 +1,135 @@
+.view-project .title {
+    margin: 0;
+    line-height: 56px;
+
+}
+.view-project h3 {
+    clear: both;
+    margin-top: 0;
+}
+.view-project .title-container {
+    margin: 25px 0;
+    padding: 0 50px 0 0;
+}
+.view-project .status-change-container {
+    padding: 0;
+}
+.view-project .status-change-container {
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.mark-as-successful-action {
+    text-align: right;
+}
+
+/************************************** Complete Report Notification ************************************************/
+.complete-report-actions {
+    padding-left: 0;
+}
+.project-actions {
+    margin-bottom: 15px;
+}
+.project-actions p {
+    font-size: 18px;
+
+}
+.project-actions .pull-left {
+    padding-left: 0;
+}
+
+.notification-container {
+    background: #cecece;
+    padding: 30px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.notification-container .control-label {
+    font-size: 18px;
+    font-weight: 400;
+    float: left;
+    margin: 5px 0 0 0;
+}
+.notification-container .btn-green {
+    margin-right: 25px;
+}
+
+
+/******************************************* Project Status Notification ******************************************************************/
+.project-status-notification {
+    background: #dbf7e3;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+
+}
+
+.project-status-notification p {
+    color: #005a8b;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+}
+@media(max-width: 767px) {
+    .notification-container .control-label {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .notification-container .btn-primary {
+        clear: left;
+        float: left!important;
+        margin-right: 17px;
+        margin-bottom: 15px;
+    }
+    .notification-container .btn-green {
+        float: none!important;
+        margin-bottom: 15px;
+    }
+    .notification-container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media(max-width: 580px) {
+
+}
+@media(max-width: 480px) {
+    .status-change-container {
+        float: none!important;
+        clear: left;
+        width: 100%;
+    }
+    .view-project .title-container {
+        margin-bottom: 45px;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        text-align: center;
+    }
+    .view-project h3 {
+        text-align: center;
+    }
+    .mark-as-successful-action {
+        text-align: center;
+    }
+    .mark-as-successful-action .btn {
+        float: none!important;
+    }
+    .mark-as-successful-action .form-horizontal {
+        display: inline-block;
+    }
+    .project-actions div {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .project-actions .btn-download, .project-actions .resolution-btn {
+        width: 100%;
+        margin-top: 0;
+        margin-right: 0!important;
+
+    }
+    .project-actions .resolution-btn {
+        margin-top: 10px;
+    }
+
+
+}

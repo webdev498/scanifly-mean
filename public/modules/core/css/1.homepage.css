@@ -1,0 +1,239 @@
+.list-item {
+    margin-right: 0;
+    list-style-type: none;
+}
+.nav {
+    display: inline-block;
+}
+
+.list-item {
+    float: left;
+}
+
+.jumbotron {
+    border: none;
+    padding-top: 0;
+    height: auto;
+    background-size: cover;
+    padding-bottom: 40px;
+    margin-bottom: 0;
+    background: #005a8b;
+    color: #fff;
+}
+
+.jumbotron h1 {
+    font-size: 52px;
+    font-weight: 400;
+    margin-top: 0;
+}
+
+.video-link {
+    width: 115px;
+    height: 156px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 135px;
+    background-image: url('../img/play-button.png');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+}
+
+.jumbotron .col {
+    padding-top: 40px;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.jumbotron .video-link-col {
+    padding-top: 0;
+}
+
+.hiw-step {
+    position: relative;
+}
+
+.section-solar {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.section-testimonial {
+    padding-top: 60px;
+    display: none;
+}
+
+.section-hiw {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.section-hiw .block {
+    position: relative;
+    color: #2e2e2e;
+    padding: 20px;
+    text-align: center;
+    height: 280px;
+    margin: 25px auto 50px;
+    width: 250px;
+    border: 1px solid #22559a;
+}
+
+.section-hiw .block:before {
+    content: '';
+    background-image: url('/modules/core/img/steps-icons.svg');
+    background-repeat: no-repeat;
+    background-size: 1056px 139px;
+    width: 240px;
+    height: 160px;
+    display: inline-block;
+}
+
+.section-hiw .block-map:before {
+    background-position: 0 0;
+}
+
+.section-hiw .block-drone:before {
+    background-position: -290px 0;
+}
+
+.section-hiw .block-report:before {
+    background-position: -585px 0;
+}
+
+.section-hiw .block-devices:before {
+    background-position: -878px 0;
+}
+
+.section-hiw .block a {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.section-hiw .section-title {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.background {
+    background-image: url('../img/Solar-Section-BG.jpg');
+    height: 490px;
+}
+
+.mockup-image {
+    max-width: 100%;
+    text-align: center;
+}
+
+.section-solar {
+    font-size: 16px;
+    position: relative;
+    background-color: #005a8b;
+    text-align: left!important;
+
+}
+
+
+.content-section-solar {
+    color: #fff;
+}
+
+.section-testimonial {
+    text-align: center;
+}
+
+.section-testimonial .quote {
+    margin: 30px 0 20px;
+}
+.section-testimonial .author-block {
+    display: block;
+}
+
+.section-testimonial .author-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-left: 20px;
+    background: #c8c8c8;
+}
+
+.section-testimonial .author-info {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.section-testimonial .author-info .name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+
+.section-hiw .btn-empty-border {
+    margin-top: 0;
+
+}
+.section-hiw .block-report .btn-empty-border, .section-hiw .block-devices .btn-empty-border  {
+    margin-left: -60px
+}
+.section-hiw .block-map .btn-empty-border {
+    margin-left: -90px;
+}
+
+@media (min-width:480px) and (max-width:1120px) {
+    .section-hiw .even .block
+    {
+        float: left;
+    }
+    .section-hiw  .odd .block
+    {
+        float: right;
+    }
+}
+
+@media (max-width:767px) {
+    .jumbotron h1
+    {
+        font-size: 40px;
+    }
+    .jumbotron h4
+    {
+        font-size: 18px;
+    }
+}
+
+.jumbotron .drone-img.show-mobile {
+    width: 70%;
+    max-width: 300px;
+}
+
+@media (max-width:767px) {
+    .jumbotron
+    {
+        text-align: center;
+    }
+}
+
+.section-solar .section-title {
+    color: #fff;
+    margin-top: 10%;
+}
+
+@media (max-width:767px) {
+    .content-section-solar
+    {
+        text-align: center;
+    }
+    .section-solar
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+

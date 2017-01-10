@@ -1,0 +1,24 @@
+{
+  "name": "ng-crazyegg",
+  "main": "ng-crazyegg.js",
+  "version": "0.2.0",
+  "authors": [
+    "Raul Geana <geana.raul@icloud.com>"
+  ],
+  "description": "Angular module wrapper for CrazyEgg script",
+  "keywords": [
+    "angular",
+    "crazyegg"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": ">=1.2.0"
+  }
+}

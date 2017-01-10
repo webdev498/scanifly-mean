@@ -1,0 +1,17 @@
+<div class="clearfix clear">
+    <div style="margin-bottom: 10px" class="pull-right col-md-5 col-sm-6 col-xs-10 col-xxs-12">
+        <button
+                class="btn btn-green pull-right btn-download"
+                data-ng-hide="isIos"
+                data-ng-click="downloadReport()">
+            Download Full Report
+        </button>
+
+        <button
+                data-ng-if="acl.hasAccess('assessment-feedback') && project.status === 'assessment-complete' && project.isCompleted === true"
+                data-ng-click="addNoteForm.value = true; addNoteForm.hideQuestion = true"
+                style="margin-right: 20px;padding-bottom: 8px" type="button" class="btn btn-primary resolution-btn schedule-flight-btn pull-right">Require Resolution</button>
+    </div>
+
+    <iframe name="downloadIframe" data-ng-src="{{downloadUrl}}" class="hidden"></iframe>
+</div>

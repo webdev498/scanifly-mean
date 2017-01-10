@@ -1,0 +1,24 @@
+<section class="section-projects" data-ng-show="authentication.user">
+    <projects-header></projects-header>
+</section>
+
+<section class="section where-we-scan-container">
+
+    <div class="title-group">
+        <h1>Where we scan</h1>
+        <h2>See if we're available in your area</h2>
+    </div>
+
+    <div class="container section-map">
+        <ul class="col-md-12 legend">
+            <li>Available Now</li>
+            <li>Available Soon</li>
+        </ul>
+
+        <div us-map class="us-map"></div>
+        <div id="clicked-state"></div>
+    </div>
+
+    <p class="col-md-12 text-center cta-text">Don't see us in your state? <a href="/#!/contact">Let us know!</a></p>
+
+</section>

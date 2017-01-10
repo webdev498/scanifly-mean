@@ -1,0 +1,15 @@
+<p>
+    <span class="pull-left">
+        <span class="date-container display-block">{{activity.createdAt | date:'MM.dd.yyyy'}}</span>
+        <span class="icon-container"><i class="icon-location-submitted"></i></span>
+    </span>
+    <span class="text-under pull-left">
+        <span data-ng-show="(authentication.user._id != activity.postedBy._id) && activity.postedBy.role !== 'scanifly-admin'">{{activity.postedBy.name}} from <span class="bold">{{activity.company.name}}</span></span>
+        <span data-ng-show="(authentication.user._id != activity.postedBy._id) && activity.postedBy.role === 'scanifly-admin'">{{activity.postedBy.name}} from <span class="bold">Scanifly</span></span>
+        <span data-ng-show="authentication.user._id == activity.postedBy._id">you</span>
+
+        acknowledged the site assessment for <a data-ui-sref="project-details({projectId: '{{activity.project._id}}'})" class="bold">{{activity.project.name}}</a> project.
+    </span>
+</p>
+
+

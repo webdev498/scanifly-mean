@@ -1,0 +1,79 @@
+<section class="section-projects" data-ng-show="authentication.user">
+	<projects-header></projects-header>
+</section>
+
+<section class="row contact-container section">
+
+	<div class="title-group">
+		<div class="container">
+			<h1>Contact</h1>
+			<h2>Drop us a line :)</h2>
+		</div>
+
+	</div>
+
+	<div class="container">
+		<div class="col-md-12 text-center">
+			<div class="form-container col-md-6">
+				<p class="form-info">Fields marked with * are mandatory.</p>
+				<form data-ng-submit="submit(contactForm)" name="contactForm" data-ng-class="{'submitted': error}" class="contact form-horizontal" autocomplete="off" novalidate>
+
+					<fieldset>
+						<div class="form-group col-md-6 col-xs-6 col-xxs-12 first-name-container">
+							<input  type="text" id="firstName" name="firstName" class="form-control" data-ng-model="formData.firstName" placeholder="First Name*" data-ng-required="true" data-ng-maxlength="50" maxlength="50">
+						</div>
+						<div class="form-group col-md-6 col-xs-6 col-xxs-12 last-name-container">
+							<input type="text" id="lastName" name="lastName" class="form-control" data-ng-model="formData.lastName" placeholder="Last Name*" data-ng-required="true" data-ng-maxlength="50" maxlength="50">
+						</div>
+						<div class="form-group">
+							<input type="email" id="email" name="email" class="form-control" data-ng-model="formData.email" placeholder="Email*" data-ng-required="true" data-ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" data-ng-maxlength="50" maxlength="50">
+
+						</div>
+						<div class="form-group">
+							<input type="text" id="companyName" name="companyName" class="form-control" data-ng-model="formData.companyName" placeholder="Company Name" data-ng-maxlength="50" maxlength="50">
+						</div>
+						<div class="form-group select-arrow-container">
+							<select data-ng-model="formData.subject" class="form-control">
+								<option value="Learn more about our services">1. Learn more about our services</option>
+								<option value="Become part of the team">2. Become part of the team</option>
+								<option value="Don't see your state?">3. Don't see your state?</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<textarea data-ng-model="formData.message" id="message" name="message" placeholder="Type your message here...*" data-ng-required="true"></textarea>
+						</div>
+						<div class="form-group select-container select-arrow-container">
+							<label>How many solar site assessments do you average per month?</label>
+							<select data-ng-model="formData.siteAssessments" class="form-control">
+								<option value="<25">1 - 25</option>
+								<option value="50">25 - 50</option>
+								<option value="75">50 - 75</option>
+								<option value="100">50 - 100</option>
+								<option value="150">100 - 150</option>
+								<option value="200">150 - 200</option>
+								<option value="300">250 - 300</option>
+								<option value="400">300 - 400</option>
+								<option value=">500">More than 500</option>
+							</select>
+						</div>
+						<div class="clear"></div>
+
+						<div class="text-center form-group button-container">
+							<button type="submit" class="btn btn-primary">Send Email</button>
+						</div>
+
+						<div data-ng-show="error" class="bg-danger">
+							{{ error }}
+						</div>
+
+						<div data-ng-show="success" class="bg-success">
+							{{ success }}
+						</div>
+
+					</fieldset>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</section>

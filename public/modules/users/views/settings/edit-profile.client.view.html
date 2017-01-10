@@ -1,0 +1,58 @@
+<section class="section-projects">
+	<projects-header></projects-header>
+</section>
+
+
+<section class="row section login-container">
+	
+	<div class="container">
+		<div class="row">
+			<div class="dashboard-body">
+				<div class="col-md-3 right-border">
+					<h3>SETTINGS</h3>
+
+					Edit Profile <br>
+					<div data-ng-if="acl.hasAccess('edit-company')">
+						<a data-ui-sref="company">Edit Company</a>
+					</div>
+					<a data-ui-sref="password">Change Password</a> <br>
+					<div data-ng-if="acl.hasAccess('billing')">
+						<a data-ui-sref="billing">Billing</a>
+					</div>
+				</div>
+
+				<div class="col-md-9">
+					<div>
+						<h3>EDIT PROFILE</h3>
+					</div>
+
+					<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2 login-form-container">
+						<form name="userForm" data-ng-submit="updateUserProfile(userForm)" data-ng-class="{'submitted': error}" class="signin form-horizontal" novalidate autocomplete="off">
+
+							<fieldset>
+								<div class="form-group">
+									<input type="text" data-ng-required="true" id="name" name="name" class="form-control" data-ng-model="user.name" placeholder="Name" data-ng-maxlength="50" maxlength="50">
+								</div>
+								<div class="form-group">
+									<input type="email" data-ng-required="true" id="email" name="email" class="form-control" data-ng-model="user.email" placeholder="Email" data-ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" data-ng-maxlength="50" maxlength="50">
+								</div>
+								<div class="text-center form-group button-container">
+									<button type="submit" class="btn btn-primary">Save Profile</button>
+								</div>
+
+								<div data-ng-show="error" class="bg-danger">
+									{{ error }}
+								</div>
+
+								<div data-ng-show="success" class="bg-success">
+									{{ success }}
+								</div>
+
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

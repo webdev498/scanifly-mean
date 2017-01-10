@@ -1,0 +1,62 @@
+
+.project-report .upload-project-data {
+    padding-top: 0;
+}
+
+.project-report .table-content {
+    margin-top: 0;
+}
+
+.project-report .upload-project-data .top-down-image {
+    float: left;
+    padding-right: 10px;
+}
+.project-report .upload-project-data .drone-images {
+    float: left;
+}
+
+.project-report .upload-project-data .drone-images .image-thumbnail {
+    cursor: pointer;
+}
+
+
+.project-report .upload-project-data .top-down-image .image-thumbnail {
+    border: 1px solid #cecece;
+    cursor: pointer;
+}
+
+.project-report .upload-project-data .table-content td > span,
+.project-report .upload-project-data .table-content th > span {
+    padding: 5px;
+}
+.pdf-actions {
+    margin-top: 65px;
+    border-top: 1px solid #cecece;
+    padding-top: 0;
+}
+
+.view-pdf .nav-tabs {
+    margin-bottom: 1px;
+}
+
+.nav-tabs > .roof-plane-tabs {
+    float: none!important;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.nav-tabs .roof-plane-tabs a {
+    color: #000;
+    width: 105px;
+    text-align: center;
+}
+
+.nav-tabs .roof-plane-tabs.active a, .nav-tabs .roof-plane-tabs a:active {
+    background-color: #337ab7!important;
+    color: #fff!important;
+    font-weight: 700;
+    border: none!important;
+
+}
+.view-pdf {
+    margin-top: 25px;
+}

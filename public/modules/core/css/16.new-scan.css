@@ -1,0 +1,250 @@
+.section.section-new-scan {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    text-align: left;
+
+}
+.section-new-scan .title {
+    margin-bottom: 55px;
+    margin-top: 0;
+}
+.new-scan-form p {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.new-scan-form .monthly {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.new-scan-form .form-group.pull-left {
+    padding-right: 10px!important;
+}
+.new-scan-form .form-group.pull-right {
+    padding-left: 10px!important;
+}
+.new-scan-form .border-top {
+    border-top: 1px solid #cdcdcd;
+    margin: 0 0 70px;
+    padding-top: 40px;
+    clear: both;
+}
+
+.new-scan-form .checkbox-container .controls {
+    float: left;
+    width: 20px;
+    margin: 0 8px 0 0;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.new-scan-form .checkbox-container label {
+    float: left;
+    font-size: 15px;
+    font-weight: 400;
+    width: 405px;
+    line-height: 35px;
+}
+.new-scan-form .checkbox-container label i {
+    height: 38px;
+    float: right;
+    margin-right: -34px;
+}
+.new-scan-form .form-group.checkbox-container {
+    padding-left: 0;
+    height: 30px;
+}
+.new-scan-form.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.new-scan-form .angular-google-map-container {
+    width: 100%;
+}
+.new-scan-form .cordinates-container {
+    background: #005a8b;
+    color: #fff;
+    padding: 3px 15px;
+    text-align: left;
+}
+.new-scan-form .cordinates-container span {
+    margin-right: 15px;
+    display: inline-block;
+
+}
+.new-scan-form .cordinates-container span:last-child {
+    margin-right: 0;
+}
+.add-markers {
+    margin-top: 25px;
+    width: 100%;
+}
+.add-markers .btn-primary {
+    float: right;
+    min-width: 100px;
+    width: 20%;
+}
+.add-markers .marker-label {
+    float: left;
+    /*width: 50%;*/
+    font-size: 14px;
+    font-weight: 400;
+    padding-right: 10px;
+
+
+}
+.add-markers .form-control {
+    float: left;
+    width: 22%;
+
+}
+.markers-container {
+    width: 100%;
+    text-align: left;
+    clear: both;
+}
+
+.markers-container .property_detail {
+    border-top: none!important;
+    margin: 0 0 70px;
+    padding-top: 20px;
+    clear: both;
+    padding-left: 0px;
+}
+
+.markers-container label {
+    margin-right: 10px;
+}
+
+.markers-container .marker {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    margin-bottom: 12px;
+    height: 22px;
+    font-size: 0;
+}
+.markers-container .marker span {
+    display: inline-block;
+    padding: 0 10px;
+    border: 1px solid #cdcdcd;
+    font-size: 14px;
+    min-width: 35px;
+    text-align: center;
+ }
+.markers-container .marker i {
+    display: inline-block;
+    height: 21px;
+    background: #005a8b;
+    color: #fff;
+    vertical-align: top;
+    width: 22px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+}
+.note_hint{
+    display: block;
+    font-size: 16px;
+    margin-top: 8px;
+    font-weight: bolder;
+}
+.note-notice {
+    padding-left: 15px;
+}
+
+.project-type {
+	color: #cdcdcd;
+	font-size: 20px;
+	font-style: italic;
+}
+.scan-box {
+	text-align: center;
+}
+.vertical-line {
+	border-left: 1px solid #cdcdcd;
+}
+.vertical-line-spacer {
+	border-left: 1px solid #cdcdcd;
+}
+
+@media(min-width: 990px) and (max-width: 1199px) {
+    .new-scan-form .checkbox-container label {
+        width: 90%;
+        font-size: 13px;
+    }
+    .new-scan-form .checkbox-container label i {
+        padding-right: 20px;
+    }
+    .new-scan-form .checkbox-container .controls {
+        width: auto;
+    }
+}
+@media(max-width: 990px) {
+    .new-scan-form .form-group.pull-right.checkbox-container {
+        padding-left: 0!important;
+    }
+}
+@media(max-width: 700px){
+    .note_hint{
+        margin-top: 0px;
+    }
+}
+@media(min-width: 480px) and (max-width: 528px) {
+    .new-scan-form .checkbox-container label {
+        /*width: 375px;*/
+        width: 350px;
+        font-size: 14px;
+    }
+}
+@media(max-width: 480px) {
+    .new-scan-form.form-horizontal .form-group.pull-left, .new-scan-form.form-horizontal .form-group.pull-right {
+        padding: 0!important;
+        float: none!important;
+    
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .new-scan-form .btn-primary {
+        width: 100%;
+    }
+    .add-markers {
+        margin-bottom: 30px;
+    }
+    .add-markers .marker-label {
+        /*width: 70%;*/
+    }
+    .add-markers .form-control {
+        width: 30%;
+    }
+    .markers-container .marker, .markers-container label {
+        padding-top: 15px;
+    }
+    .note-notice {
+        display: block;
+        padding-left: 0;
+        padding-top: 10px;
+    }
+    .new-scan-form .checkbox-container label {
+        /*width: 77%;*/
+        font-size: 11px;
+        width: 280px;
+        padding-top: 0;
+    }
+    .new-scan-form .checkbox-container label i {
+        padding-right: 0!important;
+    }
+    .new-scan-form .checkbox-container .controls {
+        width: auto;
+    }
+    .new-scan-form .border-top {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

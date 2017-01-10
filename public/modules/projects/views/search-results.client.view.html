@@ -1,0 +1,59 @@
+<section class="section-projects">
+    <projects-header></projects-header>
+</section>
+
+<section data-ng-init="find()" class="section-list-projects clearfix">
+
+    <section class="dashboard-body col-md-12 clearfix search-results">
+        <div class="container">
+            <div class="row">
+                <div class="list-group dashboard-projects pull-left col-md-9 col-sm-8 col-xs-12">
+                    <h3 class="status-header" data-ng-show="projects.$resolved && projects.length">Search results</h3>
+                    <table datatable="ng" width="100%" class="row-border hover dataTable responsive" dt-options="dtOptions" data-ng-show="projects.$resolved && projects.length">
+                        <thead>
+                        <tr>
+                            <th><span>Name</span></th>
+                            <th><span>State</span></th>
+                            <th><span>Submitted On</span></th>
+                            <th>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedCompany')">Company</span>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedUser')">Submitted By</span>
+                            </th>
+                            <th><span>Status</span></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="project in projects">
+                            <td>{{project.name}}</td>
+                            <td>{{project.address.state}}</td>
+                            <td>{{project.submittedDate | date: 'MM.dd.yyyy'}}</td>
+                            <td>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedCompany')">{{project.company.name}}</span>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedUser')">{{project.submittedBy.name}}</span>
+                            </td>
+                            <td>
+                                <span class="status-icons-listing icon-{{project.status}}"></span> <br>
+                                {{project.status}}
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-view-project" data-ui-sref="project-details({projectId: '{{project._id}}'})">
+                                    View Project
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="text-center" data-ng-hide="!projects.$resolved || projects.length">
+                        <p>No search result for your query.</p>
+                        <a data-ng-if="acl.hasAccess('new-scan')" data-ng-hide="statusFilter" class="add-project" data-ui-sref="create-project"><span class="add-project-icon"></span>New scan</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>

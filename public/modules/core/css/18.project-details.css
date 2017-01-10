@@ -1,0 +1,79 @@
+.project-info {
+    border: 1px solid #cdcdcd;
+    margin-top: 15px;
+    /* padding-left: 0; */
+    /* padding-right: 0; */
+}
+.border-top {
+    border-top: 1px solid #cdcdcd;
+    margin: 0 0 70px;
+    padding-top: 40px;
+    clear: both;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.project-info .address-container, .project-info .submission-details {
+    padding: 20px 17px 0;
+}
+.project-info .address-container b, .project-info .submission-details b {
+    display: block;
+    font-size: 16px;
+}
+.project-info .address-container b {
+    margin-bottom: 0;
+
+}
+.project-info .submission-details b {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+.project-info .submission-details p {
+    margin-bottom: 5px;
+}
+.project-info .submission-details p span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 3px;
+
+}
+.project-info .submission-details p .status-icons {
+    font-size: 16px;
+    margin-right: 7px;
+    margin-top: 3px;
+    padding-bottom: 1px;
+    color: #005a8b;
+}
+.project-info .address-container > div, .project-info .submission-details > div {
+    margin-bottom: 9px;
+}
+
+.property-icons b {
+    margin-bottom: 10px!important;
+}
+
+#start3D {
+	position: relative;
+	padding-top: 132px;
+}
+
+#3Dmodel {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+}
+
+#3Dmodel iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.disabled:after {
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  content: ' ';
+}

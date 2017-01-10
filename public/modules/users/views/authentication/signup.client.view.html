@@ -1,0 +1,57 @@
+<section class="section row signup-container">
+
+	<div class="title-group">
+		<h1>Get started</h1>
+		<h2>Create your scanifly account</h2>
+	</div>
+
+	 
+	<div class="container">
+		<div class="col-md-offset-3 col-md-6 signup-form-container">
+			<p class="form-info">Please fill in the form below. All fields are mandatory.</p>
+			<form name="userForm" data-ng-submit="signup(userForm)" data-ng-class="{'submitted': error}" class="signin form-horizontal" novalidate autocomplete="off">
+				<fieldset>
+					<div class="form-group">
+						<input type="text" data-ng-required="true" id="name" name="name" class="form-control" data-ng-model="credentials.name" placeholder="Name" data-ng-maxlength="50" maxlength="50">
+					</div>
+					<div class="form-group">
+						<input type="text" data-ng-required="true" id="company" name="company" class="form-control" data-ng-model="credentials.company" placeholder="Company" data-ng-maxlength="50" maxlength="50">
+					</div>
+					<div class="form-group">
+						<input type="email" id="email" clear-field-error block-space  name="email" data-ng-change="credentials.email = credentials.email.split(' ').join('')" class="form-control" data-ng-model="credentials.email" placeholder="Email" data-ng-required="true" data-ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/" data-ng-maxlength="50" maxlength="50">
+					</div>
+					<div class="form-group">
+						<input type="password" id="password" block-space  name="password" class="form-control" data-ng-change="credentials.password = credentials.password.split(' ').join('')" data-ng-model="credentials.password" placeholder="Password" data-ng-required="true" data-ng-minlength="6">
+					</div>
+					<div class="form-group checkbox-container">
+						<input data-ng-model="credentials.agreement" type="checkbox" id="agreement" name="agreement" data-ng-required="true"/>
+						<label data-ng-class="{'checkbox-label-error': userForm.agreement.$invalid}">
+							I agree with the <a ui-sref="terms-and-conditions">Terms and Conditions.</a> </label>
+					</div>
+					<div class="text-center form-group button-container">
+						<button type="submit" class="btn btn-large btn-primary">Create account</button>
+
+					</div>
+
+					<div data-ng-show="error" class="bg-danger">
+						{{ error }}
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+		<!-- <div class="col-md-6 col-md-offset-1 teasing-list">
+			<h4 class="col-md-12">Get your solar site assessment data and access it from anywhere.</h4>
+			<ul>
+				<li><span class="icon icon-site"></span>Site Information</li>
+				<li><span class="icon icon-d-model"></span>3D Model</li>
+				<li><span class="icon icon-report"></span>Solar Access & Shade Report</li>
+				<li><span class="icon icon-drone-images"></span>Drone's Eye View Pictures</li>
+				<li><span class="icon icon-dwg"></span>.dwg and .skp</li>
+			</ul>
+			<p class="cta-text">Are we in your area? See <a data-ui-sref="where-we-scan">Where We Scan</a>.</p>
+
+		</div> -->
+	</div>
+
+</section>

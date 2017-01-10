@@ -1,0 +1,103 @@
+.contact-container .form-container {
+    background: #fff;
+    width: 460px;
+    margin: 0 auto;
+    float: none;
+    max-width: 460px;
+}
+.contact-container .form-container .form-info {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.contact-container .form-container  .form-group.error input, .contact-container .form-container  .form-group.error textarea {
+    border-color: red;
+
+}
+
+.contact-container .page-headline-title {
+    color: #ffffff;
+
+}
+
+.contact-container .form-container .first-name-container {
+    float: left;
+    padding-right: 10px !important;
+}
+.contact-container .form-container .last-name-container {
+    float: right;
+    padding-left: 10px !important;
+}
+.contact-container .form-container textarea {
+    height: 165px;
+    width: 100%;
+    border: solid 1px #C8C8C8;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 100%;
+    min-width: 100%;
+    resize: none;
+}
+.contact-container .form-container .select-container label {
+    float: left;
+    width: 48%;
+    text-align: left;
+    font-weight: 400;
+
+}
+.contact-container .form-container .select-container select {
+    float: right;
+    width: 140px;
+}
+.contact-container .form-container .button-container {
+    margin-top: 20px;
+}
+.contact-container .form-container .button-container .btn {
+    width: 45%;
+    min-width: 190px;
+}
+.select-arrow-container {
+    position: relative;
+}
+.select-arrow-container:after {
+    content: "\f078"!important;
+    font-size: 10px;
+    color: #ccc;
+    position: absolute;
+    right: 11px;
+    font-family: 'FontAwesome';
+    top: 10px;
+    display: block!important;
+    z-index: 999;
+    pointer-events: none;
+}
+@media(max-width: 990px) {
+    .signup-form-container {
+        margin-bottom: 50px;
+    }
+}
+
+@media(max-width: 480px) {
+    .contact-container .form-container {
+        width: 100%;
+    }
+    .contact-container .form-container .first-name-container, .contact-container .form-container .last-name-container {
+        float: none;
+        padding-left: 0!important;
+        padding-right: 0!important;
+
+    }
+    .contact-container .form-container .select-container select {
+        width: 130px;
+    }
+    .signup-container .teasing-list ul li {
+        font-size: 16px;
+    }
+}
+@media(max-width: 360px) {
+    .contact-container .button-container .btn-primary {
+        width: 100%;
+    }
+}

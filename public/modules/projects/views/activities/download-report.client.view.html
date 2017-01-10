@@ -1,0 +1,11 @@
+<p>
+    <span class="pull-left">
+        <span class="date-container display-block">{{activity.createdAt | date:'MM.dd.yyyy'}}</span>
+        <span class="icon-container"><i class="fa fa-download"></i></span>
+    </span>
+
+    <span class="text-under pull-left">
+        You can download the Complete Site Assessment for project <a data-ui-sref="project-details({projectId: '{{activity.project._id}}'})" class="bold">{{activity.project.name}}</a>.</span>
+    </span>
+
+</p>

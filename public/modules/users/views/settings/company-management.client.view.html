@@ -1,0 +1,125 @@
+<section class="section-projects">
+    <projects-header></projects-header>
+</section>
+
+<section class="row section login-container company-container" data-ng-controller="CompanyManagementController">
+
+    <div class="container">
+        <div class="row">
+            <div class="dashboard-body">
+                <div class="col-md-12 manage-users-container">
+                    <h3 class="create-user-title">COMPANY MANAGER</h3>
+                    <div data-ng-init="listCompanies()">
+                        <table datatable="ng" class="row-border hover dataTable responsive" dt-options="dtOptions">
+							<colgroup>
+								<col>
+								<col class="grey-col" width="15%">
+								<col width="15%">
+								<col class="grey-col" width="15%">
+								<col width="15%">
+								<col class="grey-col" width="15%">
+							</colgroup>
+                            <thead>
+								<th class="all"><span>Name</span></th>
+								<th class="category-header">
+									<span class="icon-location-submitted icon-size-w-30 icon-grey"></span>
+									<br>
+									Location Submitted
+								</th>
+								<th class="category-header">
+									<span class="icon-flight-scheduled icon-size-w-30 icon-grey"></span>
+									<br>
+									Flight Scheduled
+								</th>
+								<th class="category-header">
+									<span class="icon-flight-successful icon-size-w-30 icon-grey"></span>
+									<br>
+									Flight Completed
+								</th>
+								<th class="category-header">
+									<span class="icon-assessment-complete icon-size-w-30 icon-grey"></span>
+									<br>
+									Data Uploaded
+								</th>
+								<th class="all category-header">Account Info</th>
+                            </thead>
+                            <tbody data-ng-show="companies.$resolved && companies.length">
+                            <tr data-ng-repeat="companyDetails in companies" data-ng-click="isCollapsed = !isCollapsed" style="cursor: pointer;">
+                                <td>
+                                    <div class="company-title">
+                                        <button class="btn btn-primary btn-company-info" data-ng-click="view_companyInfo(companyDetails);  $event.stopPropagation();" data-ng-disabled="companyDetails.admins.length == 0">Company Info</button>
+                                        <strong>{{companyDetails.company.name}}</strong>
+                                    </div>
+                                    <div class="expandable-row-child project_detail_caption" collapse="isCollapsed"></div>
+                                    <div class="expandable-row-child" collapse="isCollapsed" data-ng-repeat="project in getProjectsByCompanyID(companyDetails)">
+                                        <button class="btn btn-primary btn-view-project" data-ng-click="view_project(project); $event.stopPropagation();">View Project</button>
+                                        <span>{{project.name}}</span>
+                                    </div>
+                                </td>
+								<td class="data-cell grey-col">
+									<div class="status-count" ng-if="countLocationsSubmitted(companyDetails.company._id) > -1"><strong>{{locationsSubmittedCount}}</strong></div>
+                                    <div class="expandable-row-child project_detail_caption" collapse="isCollapsed"></div>
+                                    <div class="expandable-row-child" collapse="isCollapsed" data-ng-repeat="project in getProjectsByCompanyID(companyDetails)">
+                                        <span class="status-icons-listing icon-location-submitted project_detail_icon" ng-if="isLocationSubmitted(project)"></span>
+                                    </div>
+
+								</td>
+								<td class="data-cell">
+									<div class="status-count" ng-if="countFlightsScheduled(companyDetails.company._id) > -1"><strong>{{flightsScheduledCount}}</strong></div>
+                                    <div class="expandable-row-child project_detail_caption" collapse="isCollapsed"></div>
+                                    <div class="expandable-row-child" collapse="isCollapsed" data-ng-repeat="project in getProjectsByCompanyID(companyDetails)">
+                                        <span class="status-icons-listing icon-flight-scheduled project_detail_icon" ng-if="isFlightScheduled(project)"></span>
+                                    </div>
+								</td>
+								<td class="data-cell grey-col">
+									<div class="status-count" ng-if="countFlightsSuccessful(companyDetails.company._id) > -1"><strong>{{flightsSuccessfulCount}}</strong></div>
+                                    <div class="expandable-row-child project_detail_caption" collapse="isCollapsed"></div>
+                                    <div class="expandable-row-child" collapse="isCollapsed" data-ng-repeat="project in getProjectsByCompanyID(companyDetails)">
+                                        <span class="status-icons-listing icon-flight-successful project_detail_icon" ng-if="isFlightSuccessful(project)"></span>
+                                    </div>
+								</td>
+								<td class="data-cell">
+									<div class="status-count" ng-if="countDataUpload(companyDetails.company._id) > -1"><strong>{{dataUploadCount}}</strong></div>
+                                    <div class="expandable-row-child project_detail_caption" collapse="isCollapsed"></div>
+                                    <div class="expandable-row-child" collapse="isCollapsed" data-ng-repeat="project in getProjectsByCompanyID(companyDetails)">
+                                        <span class="status-icons-listing icon-assessment-complete project_detail_icon" ng-if="isAssessmentComplete(project)"></span>
+                                    </div>
+								</td>
+                                <td class="data-cell grey-col">
+                                    <div class="action-button">
+                                        <button class="btn btn-danger" data-ng-click="removeCompany(companyDetails); $event.stopPropagation();">
+                                            <span>DELETE</span>
+                                        </button>
+                                    </div>
+                                    <div class="expandable-row-child project_detail_caption" collapse="isCollapsed"></div>
+                                    <div class="expandable-row-child" collapse="isCollapsed" data-ng-repeat="project in getProjectsByCompanyID(companyDetails)">
+                                        <button class="btn btn-warning btn-project-delete" data-ng-click="removeProject(project,companyDetails); $event.stopPropagation();">
+                                            <span>DELETE</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <modal title="Company Information" visible="showModal" companydata="companyToshow">
+        <form role="form">
+            <div class="form-group">
+                <label for="email">Admin Name</label>
+                <input type="text" class="form-control" id="admin_name" disabled />
+            </div>
+            <div class="form-group">
+                <label for="password">Admin Email</label>
+                <input type="email" class="form-control" id="admin_email" disabled/>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="closeModal()">Close</button>
+        </form>
+    </modal>
+
+</section>

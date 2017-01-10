@@ -1,0 +1,14 @@
+<p>
+    <span class="pull-left">
+        <span class="date-container display-block">{{activity.createdAt | date:'MM.dd.yyyy'}}</span>
+        <!-- <span class="icon-container"><i class="icon-project-declined"></i></span> -->
+        <span class="icon-container"><i class="icon-note-added"></i></span>
+    </span>
+    <span class="text-under pull-left">
+        <span data-ng-show="authentication.user._id != activity.postedBy._id">{{activity.postedBy.name}} from <span class="bold">Scanifly</span> has</span>
+        <span data-ng-show="authentication.user._id == activity.postedBy._id">you</span>
+
+        declined the project: <a data-ui-sref="project-details({projectId: '{{activity.project._id}}'})" class="bold">{{activity.project.name}}</a>.
+    </span>
+</p>
+

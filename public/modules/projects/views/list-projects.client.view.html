@@ -1,0 +1,107 @@
+<section class="section-projects">
+    <projects-header></projects-header>
+</section>
+
+<section class="section-list-projects clearfix">
+
+    <section class="dashboard-body col-md-12 clearfix">
+        <div class="container">
+
+            <div class="row">
+                <ul class="nav-tab clearfix view-list">
+                    <li>
+                        <a class="btn btn-empty-border" data-ng-class="{'active':!mapListing.view}" data-ng-click="toggleMap()">
+                            <i class="fa fa-list"></i> List View
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn btn-empty-border" data-ng-class="{'active':mapListing.view}" data-ng-click="toggleMap()">
+                            <i class="fa fa-map-marker"></i> Map View
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="row" data-ng-class="{'hidden-opacity':!mapListing.view}">
+
+                <div id="map_canvas" class="map-container">
+                    <ui-gmap-google-map center="mapListing.center" zoom="mapListing.zoom" draggable="true" options="mapListing.options">
+                        <ui-gmap-markers models="mapListing.markers" coords="'self'" fit="true" icon="'icon'">
+                            <ui-gmap-windows show="show">
+                                <div ng-non-bindable>
+                                    <strong>{{name}}</strong>
+                                    <br/>
+                                    <a href="/#!/project/{{projectId}}">View Project</a>
+                                </div>
+                            </ui-gmap-windows>
+                        </ui-gmap-markers>
+                    </ui-gmap-google-map>
+                </div>
+
+            </div>
+
+            <div class="row" data-ng-class="{'hidden-opacity':mapListing.view}">
+                <div class="list-group dashboard-projects pull-left col-md-9 col-sm-8 col-xs-12">
+
+                    <h3 class="status-header" data-ng-show="projects.$resolved && projects.length" data-ng-if="statusFilter != 'flight-successful' && statusFilter != 'upload-complete'">{{statusFilter | removeDash}}</h3>
+
+                    <h3 class="status-header" data-ng-show="projects.$resolved && projects.length" data-ng-if="statusFilter == 'flight-successful'">Flight Completed</h3>
+
+                    <h3 class="status-header" data-ng-show="projects.$resolved && projects.length" data-ng-if="statusFilter == 'upload-complete'">View in Scanifly3D</h3>
+
+                    <table datatable="ng" class="row-border hover dataTable responsive"  dt-options="dtOptions" width="100%" data-ng-show="projects.$resolved && projects.length">
+                        <thead>
+                        <tr>
+                            <th><span>Name</span></th>
+                            <th><span>State</span></th>
+                            <th><span>Submitted On</span></th>
+                            <th>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedCompany')">Company</span>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedUser')">Submitted By</span>
+                            </th>
+                            <th><span>Status</span></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="project in projects">
+                            <td><strong>{{project.name}}</strong></td>
+                            <td>{{project.address.state}}</td>
+                            <td>{{project.submittedDate | date: 'MM.dd.yyyy'}}</td>
+                            <td>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedCompany')">{{project.company.name}}</span>
+                                <span data-ng-if="acl.hasAccess('dashboard-submittedUser')">{{project.submittedBy.name}}</span>
+                            </td>
+                            <td class="text-capitalize">
+                                <span class="status-icons-listing icon-{{project.status}}" data-ng-show="project.status !='flight-successful' && project.status !='upload-complete'"></span>
+                                <span data-ng-show="project.status !='flight-successful' && project.status !='upload-complete'">{{ project.status | removeDash}}</span>
+
+                                <span class="status-icons-listing icon-{{project.status}}" data-ng-show="project.status =='flight-successful'"></span>
+                                <span data-ng-show="project.status =='flight-successful'">Flight Completed</span>
+
+                                <span class="status-icons-listing icon-view-in-scanifly3D-grey" data-ng-show="project.status =='upload-complete'"></span>
+                                <span data-ng-show="project.status =='upload-complete'">View in Scanifly3D</span>
+                                
+                            </td>
+                            <td>
+                                <a class="btn btn-primary btn-view-project" data-ui-sref="project-details({projectId: '{{project._id}}'})">
+                                    View Project
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="text-center" data-ng-hide="!projects.$resolved || projects.length">
+                        <p data-ng-if="statusFilter">You currently have no projects with status <b>{{statusFilter | removeDash}}</b></p>
+                        <p data-ng-if="!statusFilter">You currently have no projects</b></p>
+                        <a data-ng-if="acl.hasAccess('new-scan')" data-ng-hide="statusFilter" class="add-project" data-ui-sref="create-new-scan"><span class="add-project-icon"></span>New scan</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>

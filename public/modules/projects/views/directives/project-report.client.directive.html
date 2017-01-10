@@ -1,0 +1,203 @@
+<section class="clearfix project-report">
+	<div class="container upload-project-data">
+
+		<div class="row">
+             <div class="table-content">
+                 <table>
+                     <col width="15%">
+                     <col width="15%">
+                     <col width="15%">
+                     <col width="25%">
+                     <col width="15%">
+                     <col width="15%">
+                     <thead>
+                     <tr>
+                         <th
+                            data-ng-class="{'text-uppercase': (head == '5-tsrf' || head =='6-tof'), 'text-capitalize': (head != '5-tsrf' && head !='6-tof')}"
+                            data-ng-repeat="(head, value) in project.details.roofPlanes[0]">
+                             <span>{{head | cleanNumberedText}}</span>
+                        </th>
+                     </tr>
+                     </thead>
+                     <tobdy>
+                         <tr data-ng-repeat="row in project.details.roofPlanes">
+                             <td><span>{{row['1-roof-plane']}}</span></td>
+                             <td><span>{{row['2-azimuth']}}{{ row['1-roof-plane'] !== 'average' ? '&deg;' : '&nbsp;' }}</span></td>
+                             <td><span>{{row['3-tilt']}}{{ row['1-roof-plane'] !== 'average' ? '&deg;' : '&nbsp;' }}</span></td>
+                             <td><span>{{row['4-average-annual-solar-access']}}%</span></td>
+                             <td><span>{{row['5-tsrf']}}%</span></td>
+                             <td><span>{{row['6-tof']}}{{ row['1-roof-plane'] !== 'average' ? '%' : '&nbsp;' }}</span></td>
+                         </tr>
+                     </tobdy>
+                 </table>
+             </div>
+		</div>
+
+        <div class="row top-down-image col-md-4" data-ng-if="project.details.droneImages.topImage.length">
+            <h4>Top Down Image</h4>
+
+            <div class="image-thumbnail" data-ng-repeat="(index, image) in project.details.droneImages.topImage">
+                <a ng-click="openLightboxModalOne(image, index)">
+                    <img data-ng-src="{{image.imagePath}}"/>
+                </a>
+
+            </div>
+        </div>
+        <div class="col-md-7 col-sm-12 col-xs-12 col-xxs-12 model-container pull-right">
+            <h4>3D Model</h4>
+
+            <div data-ng-bind-html="unSanitizeHtml(project.details.model3d)"></div>
+        </div>
+
+        <div class="row drone-images col-md-12 col-sm-12" data-ng-if="project.details.droneImages.eyeView.length">
+            <h4>Drone's Eye View Images</h4>
+
+            <div class="image-thumbnail" data-ng-repeat="(index, image) in project.details.droneImages.eyeView">
+                <a ng-click="openLightboxModal(image, index)">
+                    <img class="img-thumbnail" data-ng-src="{{image.imagePath}}" />
+                </a>
+            </div>
+        </div>
+
+        <div class="row clear">
+
+
+            <div class="col-md-6 col-sm-12 col-xxs-12">
+                <div class="row" data-ng-if="project.details.additionalFiles.length">
+                    <h4>Sketchup & Autocad Files</h4>
+
+                    <div class="file-thumbnail" data-ng-repeat="file in project.details.additionalFiles">
+                        <i class="icon-upload-file"></i>
+                        <span>{{ file.name }}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+<!-- PDF DOWNLOAD SECTION -->
+
+        <div class="row pdf-actions">
+            <h4 class="pull-left">Solar Access and Shade Report</h4>
+
+            <button
+                    class="btn btn-green pull-right btn-download"
+                    style="margin-top:50px;"
+                    data-ng-hide="isIos"
+                    data-ng-if="acl.hasAccess('download-report') && ((project.isApproved === true && !acl.hasAccess('view-pre-report')) || acl.hasAccess('view-pre-report'))  && project.status !== 'resolution-required'"
+                    data-ng-click="downloadShadeReport()">
+                Download Shade Report
+            </button>
+
+            <iframe name="downloadShadeReportIframe" data-ng-src="{{downloadShadeReportUrl}}" class="hidden"></iframe>
+
+        </div>
+
+        <div class="view-pdf">
+
+            <tabset>
+                <tab heading="Project Info" active="tab.active" disable="tab.disabled" class="roof-plane-tabs">
+                    <img style="width:100%;max-height:420px;" data-ng-src="{{project.details.shadeReport.roofImage[0].imagePath}}">
+                    <h3 style="font-weight: 700;font-size:28px;color: #000;margin-top:25px;margin-bottom: 10px;">Scanifly Solar Access and Shade Report</h3>
+                    <h4 style="margin-top:0;margin-bottom: 7px;font-size: 28px; font-weight: 700;color:#000">The {{project.ownerDetails.lastName}} Residence</h4>
+                    <p style="margin-bottom:20px;margin-top: 0;font-size: 28px;font-weight: 400">
+                        <span style="display:block;line-height: 1;">{{project.address.street}}</span>
+                        <span style="display:block;line-height: 1;">{{project.address.city}}, {{project.address.state}} {{project.address.zip}}</span>
+                    </p>
+                    <p style="margin-bottom: 35px;">
+                        <span style="display:block;font-size:11px;">Lat, Long: {{project.geoLocation.latitude | number:4}} &deg; N, {{project.geoLocation.longitude | number:4}} &deg; W</span>
+                        <span style="display:block;font-size:11px;">Mag Dec: {{project.details.shadeReport.magDec}}</span>
+                    </p>
+                    <div style="margin-bottom: 35px;" class="info-container">
+                        <span style="font-size:14px;font-weight: 700; display: block;">Report Author: <span style="font-weight: 400">{{project.details.shadeReport.reporterName}}</span></span>
+                        <span style="font-size:14px;font-weight: 700; display: block;">Report Created: <span style="font-weight: 400">{{project.details.createdAt | date:'MM.dd.yyyy, h:mma'}}</span></span>
+                        <span style="font-size:14px;font-weight: 700; display: block;">Site Assessor: <span style="font-weight: 400">{{project.details.shadeReport.siteAssessorName}}</span></span>
+                        <span style="font-size:14px;font-weight: 700; display: block;">Assessment Complete: <span style="font-weight: 400">{{project.assessmentComplete | date:'MM.dd.yyyy, h:mma'}}</span></span>
+                    </div>
+                </tab>
+
+                <tab heading="Overview" class="roof-plane-tabs">
+                    <img style="width:100%; max-height:420px;" data-ng-src="{{project.details.shadeReport.roofNotationImage[0].imagePath}}">
+
+                    <p style="color:#000;font-size:28px;font-weight:400;margin-top: 15px;margin-bottom: 15px">Annual Solar Acess Shade Percentage</p>
+                    <div data-ng-repeat="roof in project.details.roofPlanes" data-ng-if="roof['1-roof-plane'] == 'average'">
+                        <span style="margin-bottom:3px;display: block;font-size: 60px;color:#000;font-weight:400;line-height:0.8;">{{roof['4-average-annual-solar-access']}}%</span>
+                        <span style="text-transform: uppercase;color:#000;font-size:36px;">tsrf: <span style="font-weight:700;">{{roof['5-tsrf']}}%</span></span>
+                    </div>
+
+                    <table cellspacing="0" cellpadding="0" border="0" style="width:100%;margin-top: 70px; margin-bottom:70px;border: 1px solid #87B1C8; border-top:none;">
+                        <style type="text/css">
+                            .table-row:nth-child(even) {
+                                background-color: #E5EEF3;
+                            }
+                        </style>
+                        <col width="15%">
+                        <col width="15%">
+                        <col width="15%">
+                        <col width="25%">
+                        <col width="15%">
+                        <col width="15%">
+                        <thead>
+                        <tr>
+                            <th
+                                    data-ng-class="{'text-uppercase': (head == '5-tsrf' || head =='6-tof'), 'text-capitalize': (head != '5-tsrf' && head !='6-tof')}"
+                                    data-ng-repeat="(head, value) in project.details.roofPlanes[0]" style="background-color: #005a8b;">
+                                <span style="display: block;color:#fff;padding: 5px;" align="center">{{head | cleanNumberedText}}</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tobdy>
+                            <tr data-ng-repeat="row in project.details.roofPlanes" data-ng-if="row['1-roof-plane'] !== 'average'" valign="top" align="center" class="table-row">
+                                <td style="border-right: 1px solid #87B1C8;"><span style="display:block;font-weight: 700;color:#000;font-size: 16px;">{{row['1-roof-plane']}}</span></td>
+                                <td style="border-right: 1px solid #87B1C8;"><span style="font-size:16px;color:#000;">{{row['2-azimuth']}}&deg;</span></td>
+                                <td style="border-right: 1px solid #87B1C8;padding:5px"><span style="font-size:16px;color:#000;">{{row['3-tilt']}}&deg;</span></td>
+                                <td style="border-right: 1px solid #87B1C8;padding:5px"><span style="font-size:16px;color:#000;">{{row['4-average-annual-solar-access']}}%</span></td>
+                                <td style="border-right: 1px solid #87B1C8;padding:5px"><span style="font-size:16px;color:#000;">{{row['5-tsrf']}}%</span></td>
+                                <td style="padding:5px"><span>{{row['6-tof']}}%</span></td>
+                            </tr>
+                        </tobdy>
+                    </table>
+                </tab>
+
+                <tab ng-repeat="row in project.details.roofPlanes" ng-if="row['1-roof-plane'] !== 'average'" heading="Roof Plane {{row['1-roof-plane']}}" class="roof-plane-tabs">
+                    <div class="roof-plane">
+                        <img style="width:100%;margin-bottom:20px;max-height:420px;" data-ng-src="{{project.details.shadeReport.roofs[row['1-roof-plane']].image[0].imagePath}}">
+                        <div style="float:left;margin-bottom:30px;text-align:left;" class="pull-left">
+                            <span style="font-size:18px;font-weight:700">Roof Plane: <span style="display:inline-block;color:#fff;background: #49D574;height:25px;width:25px;border-radius:50%;overflow:hidden;text-align:center;font-size: 18px;line-height:26px;vertical-align:middle;">{{row['1-roof-plane']}}</span></span>
+                            <p style="margin-bottom:0;margin-top:10px;"><span style="font-size:18px;font-weight:700">Tilt: <span style="font-size:18px;font-weight:400">{{row['3-tilt']}}</span></span>, <span style="font-size:18px;font-weight:700">Azimuth: <span style="font-size:18px;font-weight:400">{{row['2-azimuth']}}&deg;</span></span></p>
+                            <span style="font-size:18px;font-weight:700">Solar Access Viewshed Heading:
+                                <span style="font-size:18px;font-weight:400">{{project.details.shadeReport.roofs[row['1-roof-plane']].solarAccessViewshedHeading}}&deg;</span>
+                            </span>
+                        </div>
+                        <div style="float:right;margin-bottom:30px;text-align:right;" class="pull-right">
+                            <span style="display:block;font-size:18px;font-weight:700">Annual Solar Access: <span style="font-weight:400">{{row['4-average-annual-solar-access']}}%</span></span>
+                            <span style="display:block;font-size:18px;font-weight:700;text-transform: uppercase">tsrf: <span style="font-weight:400">{{row['5-tsrf']}}%</span></span>
+                            <span style="display:block;font-size:18px;font-weight:700;text-transform: uppercase">tof: <span style="font-weight:400">{{row['6-tof']}}%</span></span>
+                        </div>
+                        <div style="margin-bottom:70px;display: flex;display:-webkit-flex;clear:both;width:100%;">
+
+                            <div class="individual-image" data-ng-repeat="shadeImage in project.details.shadeReport.roofs[row['1-roof-plane']].shadeImages">
+                                <div class="image-thumbnail">
+                                    <img data-ng-src="{{shadeImage.imagePath}}">
+                                </div>
+
+                                <div>
+                                    <span style="margin-top:1px;margin-right:7px;float:left;font-weight:700;display:inline-block;color:#fff;background: #49D574;height:20px;width:20px;border-radius:50%;overflow:hidden;text-align:center;font-size: 16px;line-height:18px">{{shadeImage.number}}</span>
+                                    <div style="float:left">
+                                        <span style="font-size:14px;font-weight:700;display: inline-block">Annual Solar Access: <span>{{shadeImage.annualSolarAccess}}%</span></span>
+                                        <span style="font-size:14px;font-weight:700;display:block">TSRF: <span>{{multiplyPercentages(row['6-tof'], shadeImage.annualSolarAccess)| number:0}}%</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+
+            </tabset>
+
+        </div>
+
+<!-- END OF PDF DOWNLOAD SECTION -->
+
+	</div>
+</section>

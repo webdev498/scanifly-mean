@@ -1,0 +1,82 @@
+html, body {
+    height: 100%;
+    position: relative;
+}
+
+a {
+    color: #005a8b;
+}
+.nav > li > a {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+@media (max-width: 480px) {
+    .col-xxs-12 {
+        width: 100%;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+
+.section {
+    text-align: center;
+    padding-bottom: 100px!important;
+}
+
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: none;
+    min-width: 1px;
+}
+
+a:hover,
+a:active {
+    color: #005a8b;
+    text-decoration: none;
+}
+
+.content {
+    overflow: auto;
+    padding-bottom: 139px;
+}
+
+.body-wrapper {
+    position: relative;
+    min-height: 100%;
+}
+.lightbox-nav {
+    min-height: 20px!important;
+}
+.body-wrapper-two {
+    position: relative;
+    min-height: 99%;
+}
+/*.login-container {*/
+    /*padding-bottom: 100px!important;*/
+/*}*/
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+.new-scan-form .checkbox-container .controls {
+    margin: 11px 8px 0 0;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

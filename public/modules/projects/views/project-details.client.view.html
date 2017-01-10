@@ -1,0 +1,281 @@
+<section class="section-projects">
+	<projects-header></projects-header>
+</section>
+
+<section class="clearfix view-project">
+	<div data-ng-if="project.selfscan === false">
+	    <status-bar></status-bar>
+    </div>
+	
+	<div class="container">
+		<div class="row">
+
+			<div data-ng-hide="hideNotif" class="project-status-notification clearfix" data-ng-if="acl.hasAccess('download-report') && project.isApproved === true && project.status !== 'resolution-required'">
+				<div class="status-complete col-md-12 col-sm-12 col-xs-12 col-xxs-12">
+					<p>Your report is complete. You can check out your data bellow or download the full report <span data-ng-show="isIos">on a desktop version</span>. </p>
+				</div>
+
+			</div>
+
+			<div class="title-container pull-left col-md-7">
+				<h1 class="title">{{ project.name }}</h1>
+			</div>
+
+			<div class="pull-right col-md-5 status-change-container" data-ng-if="acl.hasAccess('edit-project') && (project.status === 'location-submitted')">
+				<div class="mark-as-successful-action">
+					<button class="btn btn-green pull-right" data-ui-sref="edit-project({projectId:project._id})">EDIT PROJECT</button>
+				</div>
+			</div>
+
+			<!-- remove		data-ng-if="acl.hasAccess('project-processing')"	to decline projects -->
+			<div class="pull-right col-md-5 status-change-container" data-ng-if="acl.hasAccess('project-processing')">
+				<schedule-flight data-ng-if="project.status === 'location-submitted'"></schedule-flight>
+				<mark-as-successful data-ng-if="project.status === 'flight-scheduled'"></mark-as-successful>
+				<upload-data data-ng-if="!project.details && project.status === 'flight-successful'"></upload-data>
+				<upload-complete data-ng-if="project.details && project.status !== 'resolution-required'"></upload-complete>
+                <resolution-required data-ng-if="project.status === 'resolution-required'"></resolution-required>
+			</div>
+
+            <div class="project-actions clearfix clear" data-ng-if="acl.hasAccess('download-report') && project.isApproved === true && project.status !== 'resolution-required'">
+                <download-report></download-report>
+            </div>
+
+            <div
+				 data-ng-if="acl.hasAccess('upload-feedback')
+                 && project.isApproved === true
+                 && project.status !== 'resolution-required'
+                 && (project.isCompleted === false || addNoteForm.value === true)">
+                <div class="col-md-12 notification-container clearfix" data-ng-hide="addNoteForm.hideQuestion">
+                    <p class="control-label text-left bold">Too much tree shading?</p>
+
+                    <button class="btn btn-primary pull-right col-xxs-12" data-ng-click="addNoteForm.value = true">Yes, I would like to request a resolution.</button>
+                    <button class="btn btn-green pull-right col-xxs-12" data-ng-click="markAsCompleted()">No, everything is good.</button>
+                </div>
+
+                <div class="add-note-form-container" data-ng-if="addNoteForm.value" data-ng-controller="NotesController">
+                    <h4 class="clearfix pull-left">Add a Note</h4>
+                    <div data-ng-include="'modules/projects/views/notes/add-note-form.client.view.html'"></div>
+                </div>
+            </div>
+
+			<h3>Project Information</h3>
+
+			<div class="project-info clearfix col-md-12">
+				<div class="col-md-3 address-container">
+					<div>
+						<b>Address & Coordinates</b>
+						<span>{{project.address.street}}</span><br>
+						<span>{{project.address.city}}, {{project.address.state}} {{project.address.zip}}</span><br>
+						<span>{{project.geoLocation.latitude | number:4 }} &deg; N, {{project.geoLocation.longitude | number:4 }} &deg; W</span>
+					</div>
+					<div>
+						<b>Owner Details</b>
+						<span>{{project.ownerDetails.firstName}} {{project.ownerDetails.lastName}}</span><br>
+						<span><i class="fa fa-envelope-o"></i> {{project.ownerDetails.email}}</span><br>
+						<span><i class="fa fa-phone"></i> {{project.ownerDetails.phone}}</span>
+					</div>
+					<div class="property-icons">
+						<b>Property Details:</b>
+
+						<span
+						   title="The property has a lot of trees."
+						   class="icon-trees icon-size-w-35 icon-grey"
+						   data-ng-class="{'icon-blue':project.propertyDetails.nearTrees}">
+						</span>
+
+						<span
+						   title="The property is within 1 mile radius from an airport."
+						   class="icon-airport icon-size-w-35 icon-grey"
+						   data-ng-class="{'icon-blue':project.propertyDetails.nearAirport}">
+						</span>
+
+						<span
+						   title="The property is near high voltage lines."
+						   class="icon-high-voltage icon-size-w-35 icon-grey"
+						   data-ng-class="{'icon-blue':project.propertyDetails.nearHighVoltage}">
+						</span>
+
+						<span
+						   title="The property is near an interstate highway."
+						   class="icon-highway icon-size-w-35 icon-grey"
+						   data-ng-class="{'icon-blue':project.propertyDetails.nearHighway}">
+						</span>
+					</div>
+					<div data-ng-if="project.kWh.annual">
+						<b>Annual kWh Usage:</b>
+						{{project.kWh.annual}} kWh
+					</div>
+
+				</div>
+				<div class="col-md-6 property-image-container">
+					<img ng-src="{{project.propertyImage}}" />
+				</div>
+				<div class="col-md-3 submission-details">
+					<div>
+						<b>Submitted by:</b>
+						<p>{{project.submittedBy.name}}</p>
+					</div>
+					<div>
+						<b>Submission Date:</b>
+						<p><span class="status-icons icon-location-submitted"></span><span>{{project.submittedDate | date:'MM.dd.yyyy'}}</span></p>
+					</div>
+                    <div data-ng-if="project.scheduledFlight">
+                        <b>Flight Scheduled:</b>
+                        <p><span class="status-icons icon-flight-scheduled"></span><span>{{project.scheduledFlight | date:'MM.dd.yyyy, h:00a'}}</span></p>
+                    </div>
+					<div data-ng-if="project.successfulFlight">
+						<b>Flight Completed:</b>
+						<p><span class="status-icons icon-flight-successful"></span><span>{{project.successfulFlight | date:'MM.dd.yyyy, h:mma'}}</span></p>
+					</div>
+					<div data-ng-if="project.uploadComplete">
+						<b>upload Complete:</b>
+						<p><span class="status-icons icon-assessment-complete"></span><span>{{project.uploadComplete | date:'MM.dd.yyyy, h:mma'}}</span></p>
+					</div>
+					<div data-ng-if="project.resolutionRequired">
+						<b>Resolution Required:</b>
+						<p><span class="status-icons icon-resolution-required"></span><span>{{project.resolutionRequired | date:'MM.dd.yyyy, h:mma'}}</span></p>
+					</div>
+					<div data-ng-if="project.completeDate">
+						<b data-ng-if="project.status !== 'resolution-complete'">Assessment Approved:</b>
+						<b data-ng-if="project.status === 'resolution-complete'">Resolution Complete:</b>
+						<p><span class="status-icons icon-assessment-approved"></span><span>{{project.completeDate | date:'MM.dd.yyyy, h:mma'}}</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Upload Project Files -->
+<div class="container" data-ng-if="project.selfscan === true OR currentUser.role === 'scanifly-admin'">
+	<div class="row clearfix upload-project-data">
+			<form name="uploadForm" data-ng-submit="upload(uploadForm)" data-ng-class="{'submitted':uploadForm.$submitted}" novalidate>
+
+				<div class="row col-md-6 col-sm-12 pull-left drone-images clear">
+					<h4>Upload Drone's Eye View Images</h4>
+
+					<div data-ngf-drop=""
+						 data-ngf-select=""
+						 data-ng-model="uploadTmp.droneImages.eyeView"
+						 data-ng-model-rejected="rejFiles"
+						 data-ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+						 class="drop-box"
+						 data-ngf-capture="'camera'"
+						 data-ngf-multiple="true"
+						 data-ngf-allow-dir="true"
+						 data-ngf-accept="'image/*'"
+						 data-ngf-drop-available="dropAvailable">
+
+						<div data-ng-hide="dropAvailable">
+							File Drop not available, please browse from your computer<br>(JPEG)
+						</div>
+
+						<div data-ng-show="dropAvailable">
+							<i class="fa fa-plus-circle"></i>
+							<span>Drag and drop your files here, or browse from your computer<br>(JPEG)</span>
+						</div>
+
+					</div>
+
+					<div class="bg-danger" data-ng-if="uploadErrors.eyeView">
+						{{ uploadErrors.eyeView }}
+					</div>
+
+					<div class="image-thumbnail" data-ng-repeat="image in data.droneImages.eyeView">
+
+						<img data-ng-if="image.data" data-ngf-src="image.data" data-ng-show="image.data.type.indexOf('image') > -1" data-ngf-accept="'image/*'">
+						<img data-ng-if="!image.data" data-ng-src="{{image.imagePath}}">
+
+						<div class="remove-image">
+							<span data-ng-click="removeImage('eyeView', $index)"><i class="fa fa-times"></i></span>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="row col-md-6 col-sm-12 pull-left sketchup-files-container">
+					<h4>Upload 3D Model</h4>
+
+					<div data-ngf-drop=""
+						 data-ngf-select=""
+						 data-ng-model="uploadTmp.additionalFiles"
+						 data-ng-model-rejected="rejFiles"
+						 data-ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}"
+						 class="drop-box"
+						 data-ngf-multiple="true"
+						 data-ngf-allow-dir="true"
+						 data-ngf-accept="'*'"
+						 data-ngf-drop-available="dropAvailable">
+
+						<div data-ng-hide="dropAvailable">
+							File Drop not available, please browse from your computer<br>(ZIP)
+						</div>
+
+						<div data-ng-show="dropAvailable">
+							<i class="fa fa-plus-circle"></i>
+							<span>Drag and drop your file here, or browse from your computer<br>(ZIP)</span>
+						</div>
+
+					</div>
+
+					<div class="bg-danger" data-ng-if="uploadErrors.additionalFiles">
+						{{ uploadErrors.additionalFiles }}
+					</div>
+
+					<div class="file-thumbnail" data-ng-repeat="file in data.additionalFiles">
+						<i class="icon-upload-file"></i>
+						<span>{{ file.name }}</span>
+
+						<span data-ng-click="removeImage('additionalFiles', $index)"><i class="fa fa-times"></i></span>
+					</div>
+				</div>
+
+				<div class="row clear user-input-container">
+				</div>
+
+				<div class="row">
+					<button class="btn btn-green btn-upload-data" type="submit" data-ng-hide="startUploadData">
+						SAVE PROJECT FILES
+					</button>
+					<a data-ui-sref="project-details({projectId: '{{project._id}}'})" class="btn btn-primary btn-upload-data">CANCEL</a>
+					<div class="bg-info" data-ng-show="startUploadData">Uploading data ... Please wait</div>
+					<div class="bg-danger" data-ng-show="error && !startUploadData">{{error}}</div>
+				</div>
+			</form>
+	</div>
+</div>
+
+<!--
+<br>
+<div class="container" id="projectdetails">
+	<div class="border-top">
+		<div id="start3D" class=""></div>
+	</div>
+</div>
+-->
+
+<!-- 3D Model Window -->
+<!--
+<div class="container">
+	<a id="adjustMessage" ng-click="modelviewer()" class="row btn btn-green pull-left" style="width:100%">Click to Maximize 3D Model Window</a>
+</div>
+<div id="3Dmodel" name="3Dmodel" class="container disabled" value="min">
+	<div class="row border-top clearfix">
+		<div id="enabler" class="disabled">
+			<iframe src="http://scanifly.solar" id="iframe" height="300" width="100%"></iframe>
+		</div>
+	</div>
+</div>
+-->
+<br><br>
+
+
+<!-- Notes -->
+<div class="container">
+	<div class="row border-top clearfix">
+		<section data-ng-include="'modules/projects/views/notes/list-notes.client.view.html'">
+
+		</section>
+	</div>
+</div>

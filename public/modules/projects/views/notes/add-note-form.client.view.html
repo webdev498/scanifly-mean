@@ -1,0 +1,11 @@
+<form name="commentsForm" class="form-horizontal col-md-12" data-ng-submit="create(commentsForm)" data-ng-class="{'submitted': error}" novalidate>
+    <div class="form-group col-md-12 margin40">
+        <div class="controls">
+            <textarea data-ng-model="data.note" id="note" class="form-control" data-ng-required="true"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group clear">
+        <input type="submit" class="btn btn-primary" value="Add Note">
+    </div>
+</form>

@@ -1,0 +1,9 @@
+diff a/app/models/project.server.model.js b/app/models/project.server.model.js	(rejected hunks)
+@@ -114,6 +114,7 @@
+ 		type: Schema.Types.Mixed
+ 	},
+ 
++<<<<<<< HEAD
+ 	kWh: {
+ 		month1: {
+ 			type: String,

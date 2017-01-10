@@ -1,0 +1,14 @@
+<p>
+    <span class="pull-left">
+        <span class="date-container">{{activity.createdAt | date:'MM.dd.yyyy'}}</span>
+        <span class="icon-container"><i class="icon-new-user"></i></span>
+    </span>
+
+    <span class="text-under pull-left">
+        <span data-ng-show="authentication.user._id != activity.postedBy._id">{{activity.postedBy.name}}</span>
+        <span data-ng-show="authentication.user._id == activity.postedBy._id">you</span>
+
+        created a new company: <span class="bold">{{activity.company.name}}</span>.
+    </span>
+
+</p>

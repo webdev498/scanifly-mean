@@ -1,0 +1,42 @@
+.user-page {
+    padding-top: 60px;
+}
+.user-page h3 {
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+.login-container .btn-create-user {
+    margin-bottom: 50px;
+}
+.login-form-container {
+    background: #fff;
+    clear: left;
+    width: 300px;
+    margin: 0 auto;
+    float: none;
+}
+.login-container .signin {
+    text-align: center;
+
+}
+.login-form-container img {
+    margin-bottom: 25px;
+}
+
+.login-form-container .button-container {
+    margin-top: 25px;
+}
+.login-form-container .button-container .btn {
+    width: 100%;
+
+}
+.forgot-password a {
+    color: #B5B5B5;
+}
+@media(max-width: 480px) {
+
+    .login-form-container {
+        width: 100%;
+    }
+}
+

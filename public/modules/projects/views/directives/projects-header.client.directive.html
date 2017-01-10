@@ -1,0 +1,79 @@
+<div class="projects-nav">
+    <div class="container">
+        <div class="row">
+            <div class="dashboard-icon">
+                <a ui-sref="dashboard" class="link-dashboard"><span class="icon-activity-icon2"></span></a>
+            </div>
+            <div class="my-projects clearfix">
+                <a data-ng-click="toggleProjectBar()" class="link-projects">My Projects</a>
+                <div class="accordion-bar" data-ng-show="showProjectBar">
+                    <div class="filters-bar hidden-mobile" data-ng-class="{'active':filtersOn}">
+                        <div class="filters-container">
+                            <ul class="filter-list">
+                                <li class="li-filter">
+                                    <a data-ui-sref="list-projects({status: null})" class="filter-option">
+                                        <span class="status-icons icon-all-properties"></span> <br>
+                                        <span class="status">All Projects</span>
+                                    </a>
+                                </li>
+                                <li class="li-filter">
+                                    <a data-ui-sref="list-projects({status: 'location-submitted'})" class="filter-option">
+                                        <span class="status-icons icon-location-submitted"></span> <br>
+                                        <span class="status">Location Submitted</span>
+                                    </a>
+                                </li>
+                                <li class="li-filter">
+                                    <a data-ui-sref="list-projects({status: 'flight-scheduled'})" class="filter-option">
+                                        <span class="status-icons icon-flight-scheduled"></span> <br>
+                                        <span class="status">Flight Scheduled</span>
+                                    </a>
+                                </li>
+                                <li class="li-filter">
+                                    <a data-ui-sref="list-projects({status: 'flight-successful'})" class="filter-option">
+                                        <span class="status-icons icon-flight-successful"></span> <br>
+                                        <span class="status">Flight Completed</span>
+                                    </a>
+                                </li>
+                                <li class="li-filter">
+                                    <a data-ui-sref="list-projects({status: 'upload-complete'})" class="filter-option">
+                                        <span class="status-icons icon-view-in-scanifly3D-white"></span> <br>
+                                        <span class="status">View in Scanifly3D</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div data-ng-if="acl.hasAccess('new-scan')" class="new-scan" data-pg-collapsed>
+                <a data-ui-sref="create-new-scan" type="button" class="btn-new-scan btn btn-green btn-lg">new project</a>
+            </div>
+
+            <div data-ng-if="acl.hasAccess('company-management')" class="new-scan" data-pg-collapsed>
+                <a data-ui-sref="company-management" type="button" class="btn-new-scan btn btn-green btn-lg">Company Manager</a>
+            </div>
+
+            <a ng-click="showSearchBar()" class="show-search pull-right"><i class="fa fa-search fa-2x"></i></a>
+
+            <div class="search-area" data-ng-class="{'active': showSearch}">
+                <form class="search-form" data-ng-submit="search()">
+                    <div class="search-input-container">
+                        <input data-ng-model="keyword" type="text" class="form-control input-lg search-input" placeholder="{{searchPlaceholder}}">
+                        <a class="search-button" data-ng-click="search()"><i class="fa-search fa fa-2x"></i></a>
+                        <i data-ng-click="hideSearchBar()" class="fa fa-times fa-2x"></i>
+                    </div>
+                </form>
+            </div>
+
+            <div data-ng-if="acl.hasAccess('company-management')" class="new-scan mobile" data-pg-collapsed>
+                <a data-ui-sref="company-management" type="button" class="btn-new-scan btn btn-green btn-lg">Company Manager</a>
+            </div>
+
+        </div>
+    </div>
+</div>

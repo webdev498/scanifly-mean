@@ -1,0 +1,571 @@
+table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover{
+    background: #fcfcfc;
+}
+.search-input-container
+{
+    position: relative;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 17px;
+    height: 100%;
+}
+.status-count {
+    padding-bottom: 15px;
+    display: block;
+}
+.search-input
+{
+    background-color: #fff;
+    border-radius: 0;
+    border: 0;
+    color: #000!important;
+    width: 100%;
+    padding-right: 50px;
+}
+.modal-dialog {
+    margin: 160px auto;
+}
+.search-area
+{
+    margin-bottom: 0;
+    height: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    background-color: #004776;
+    position: relative;
+    overflow: hidden;
+
+}
+.search-area:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 52px;
+    width: 1px;
+    background: #005080;
+    display: block;
+    z-index: 9;
+    top: 15px;
+}
+.search-area:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    height: 52px;
+    width: 1px;
+    background: #005080;
+    display: block;
+    z-index: 9;
+    top: 15px;
+}
+.search-icon
+{
+    position: absolute;
+    margin-left: 720px;
+    margin-top: -26px;
+    font-size: 18px;
+    color: #959595;
+}
+
+.input-lg
+{
+    color: #fff;
+    font-size: 21px;
+    padding-left: 30px;
+    padding-right: 50px;
+}
+
+.projects-nav .row {
+    position: relative;
+}
+
+.projects-nav .btn-green
+{
+    margin-top: 18px;
+}
+
+.search-button .fa-search
+{
+    position: absolute;
+    content: "\f002";
+    font-size: 21px;
+    font-family: "FontAwesome";
+    z-index: 9;
+    display: block;
+    color: #97B4C7;
+    color: rgba(0, 0, 0, 0.6);
+    right: 0;
+    top: 50%;
+    margin-top: -13px;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+.search-form
+{
+    height: 80px;
+    background: #005a8b;
+}
+
+.search-input-container .fa-times
+{
+    position: absolute;
+    right: 0;
+    color: #97B4C7;
+    color: rgba(255, 255, 255, 0.6);
+    top: 50%;
+    margin-top: -13px;
+    margin-right: 60px;
+    display: none;
+    z-index: 9;
+    font-size: 16px;
+}
+
+.my-projects {
+    color: #fff;
+    font-size: 21px;
+    text-align: center;
+    height: 80px;
+    position: static;
+    float: left;
+    width: 175px;
+    padding-left: 0;
+
+}
+
+.my-projects .link-projects {
+    display: block;
+    height: 100%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-right: 15px;
+    padding-top: 25px;
+    position: relative;
+}
+.my-projects .link-projects:after {
+    content: "\f078";
+    position: absolute;
+    right: 21px;
+    font-family: FontAwesome;
+    top: 32px;
+    display: block;
+    font-size: 12px;
+    color: #ffffff;
+
+}
+@media (max-width:990px)
+{
+    .projects-nav .my-projects
+    {
+        font-size: 19px;
+
+    }
+    .projects-nav .my-projects .link-projects
+    {
+
+        padding-top: 30px;
+    }
+}
+
+.my-projects a
+{
+    /* width: 100%; */
+
+    color: #fff;
+    display: inline-block;
+}
+.dashboard-icon {
+    height: 79px;
+    width: 75px;
+    float: left;
+    background: #005a8b;
+    position: relative;
+
+}
+.dashboard-icon:after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    height: 52px;
+    width: 1px;
+    background: #005080;
+    display: block;
+    z-index: 9;
+    top: 15px;
+}
+.link-dashboard {
+    display: block;
+    /*opacity: 0.7;*/
+    width: 31px;
+    height: 35px;
+    background-size: 100%;
+    margin: 25px auto 0;
+}
+.link-dashboard span {
+    color: #49d574;
+    font-size: 30px;
+}
+.link-dashboard span:hover {
+    color: #5ec6ff;
+}
+.link-dashboard:hover {
+    opacity: 1;
+}
+.new-scan
+{
+    text-align: center;
+    float: right;
+    margin-left: 25px;
+    display: block;
+}
+.mobile {
+    display: none;
+}
+
+.filters
+{
+    list-style-type: none;
+    background-color: #005a8b;
+}
+
+.filters-container
+{
+    padding: 0;
+}
+
+.projects-navbar
+{
+    background-color: #005a8b;
+}
+
+.projects-nav
+{
+    background-color: #005a8b;
+    border-bottom: 1px solid #fff;
+    position: relative;
+}
+
+.accordion-bar {
+    height: 80px;
+    position: absolute;
+    bottom: -80px;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #fff;
+}
+.accordion-bar.sticky {
+    display: block;
+}
+.accordion-bar .accordion-header {
+    padding: 2px 0;
+    background: #004776;
+    display: none;
+}
+.accordion-bar .accordion-header p {
+    color: #ffffff;
+    margin-bottom: 0;
+}
+.filters-bar {
+    background: #005a8b;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.filter-list
+{
+    padding-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+    font-size: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+
+.filter-option:first-child
+{
+    border-left: none;
+}
+
+.filter-option
+{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    line-height: 0;
+}
+
+.li-filter
+{
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    border-left: 1px solid #fff;
+    width: 20%;
+    font-size: 15px;
+    vertical-align: top;
+    background: #005a8b;
+    padding: 5px;
+    min-height: 84px;
+
+}
+
+.li-filter a:hover {
+    text-decoration: none;
+}
+
+.li-filter:first-child {
+    border-left: none;
+}
+.filter-list a
+{
+    color: #fff;
+
+}
+
+.status-icons
+{
+    display: block;
+    margin-top: 15px;
+    padding-bottom: 15px;
+    font-size: 28px;
+}
+
+.status-icons-listing
+{
+    font-size: 20px;
+}
+
+.section-projects a:hover, .section-projects a:hover:after 
+{
+    color: #5ec6ff;
+}
+
+.section-projects a:hover span.icon-view-in-scanifly3D-white:before{
+    content:url(/modules/core/img/Hover-View-in-Scanifly3D.png);
+}
+.show-search {
+    display: none;
+}
+.btn-company-info {
+    margin-right: 10px;
+}
+@media(max-width: 990px) {
+
+    .my-projects a {
+        line-height: 21px;
+    }
+    .my-projects .link-projects {
+        margin-top: 0;
+    }
+    .my-projects .status {
+        display: block;
+        font-size: 14px;
+        max-width: 71px;
+        margin: -16px auto 0;
+        line-height: 17px;
+
+    }
+    .my-projects .status-icons {
+        margin-top: 8px;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 24px;
+
+    }
+    .my-projects .link-projects:after {
+        top: 30px;
+    }
+
+}
+
+@media(max-width: 767px) {
+
+    .projects-nav .dashboard-icon {
+        width: 54px;
+    }
+    .projects-nav .link-dashboard {
+        width: 34px;
+        height: 29px;
+        margin: 27px auto 0;
+
+    }
+    .projects-nav .link-projects:after {
+        display: none;
+    }
+    .dashboard-body {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .new-scan {
+        text-align: center;
+        float: right;
+        margin-left: 15px;
+        width: 95px;
+        margin-right: 15px;
+        display: none;
+
+    }
+    .mobile {
+        display: block;
+        width: 230px;
+        margin: 0 auto;
+        float: none!important;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    .projects-nav .my-projects {
+        font-size: 19px;
+        max-width: 90px;
+        padding-right: 0;
+    }
+    .projects-nav .my-projects .link-projects {
+        padding-top: 18px;
+        padding-left: 15px;
+    }
+    .new-scan .btn-new-scan {
+        width: 100%;
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 5px;
+
+    }
+    .search-input-container .input-lg {
+        font-size: 16px;
+        padding-left: 15px;
+    }
+
+}
+
+
+@media(max-width: 480px) {
+    .li-filter {
+        width: 33.3%;
+    }
+    .li-filter:nth-child(4) {
+        border-left: none;
+    }
+    .li-filter:nth-child(4), .li-filter:nth-child(5), .li-filter:nth-child(6)  {
+        border-top: 1px solid #ffffff;
+    }
+
+    .projects-nav .my-projects {
+        text-align: center;
+        font-size: 15px;
+    }
+    .projects-nav .my-projects .link-projects {
+        padding-left: 15px;
+        padding-top: 20px;
+        max-width: 77px;
+        margin: 0 auto;
+        font-size: 16px;
+    }
+
+    .projects-nav .link-dashboard {
+        width: 31px;
+
+
+    }
+    .mobile {
+        display: none;
+    }
+
+    .hidden-mobile {
+        diplay: none;
+    }
+    .accordion-bar {
+        display: block;
+    }
+
+    .accordion-header a:hover {
+        text-decoration: none;
+    }
+
+    .filters-bar.active {
+        display: block;
+    }
+    .filters-bar.hidden {
+        display: none;
+    }
+    .dashboard-projects .text-center {
+        width: 90%;
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-left: 0;
+        margin-top: 50px;
+    }
+
+    .projects-nav .my-projects {
+        font-size: 15px;
+        max-width: 70px;
+
+    }.projects-nav .my-projects .link-projects {
+        padding-top: 18px;
+        padding-left: 20px;
+     }
+    .projects-nav .my-projects:after {
+        display: none;
+    }
+    .search-button .fa-search {
+
+        top: 30px;
+        right: 57px;
+        margin-top: 0;
+        margin-right: 0;
+        color: #5D5D5D;
+        color: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+    }
+
+    .search-input-container {
+        padding-right: 45px;
+    }
+    .search-input-container .input-lg {
+
+        font-size: 15px;
+        padding-left: 5px;
+        padding-right: 35px;
+    }
+    .search-input-container .fa-times {
+        display: block;
+        right: 14px;
+        margin-right: 0;
+        margin-top: 0;
+        top: 27px;
+        font-size: 23px;
+    }
+    .search-area {
+        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 99;
+    }
+    .search-area.active {
+        display: block;
+    }
+    .show-search {
+        display: block;
+        float: right;
+        color: #fff;
+        opacity: 0.7;
+        height: 79px;
+        padding-top: 29px;
+        width: 50px;
+        text-align: center;
+
+    }
+    .new-scan {
+        margin-left: 10px;
+    }
+    .show-search .fa {
+        font-size: 24px;
+    }
+    .new-scan .btn-new-scan {
+        font-size: 14px;
+    }
+}

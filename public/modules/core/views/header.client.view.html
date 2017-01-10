@@ -1,0 +1,89 @@
+<div class="container header-container" data-ng-controller="HeaderController">
+    <ul class="custom-dropdown-menu" data-ng-show="showDropDown">
+		<li>
+			<a data-ui-sref="settings">Settings</a>
+		</li>
+		<li data-ng-if="acl.hasAccess('tutorials')">
+			<a data-ui-sref="tutorials">Tutorials</a>
+		</li>
+		<li data-ng-if="acl.hasAccess('user-management')">
+            <a data-ui-sref="user-management">User Management</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="auth/signout">Sign Out</a>
+        </li>
+    </ul>
+    <div class="row">
+
+        <a class="logo pull-left" data-ui-sref="home"></a>
+
+        <div class="clearfix account-panel col-md-10 col-sm-10 col-xs-8 navbar-default">
+
+            <div class="navbar-header hamburger" data-ng-hide="authentication.user">
+                <button type="button" class="navbar-toggle" data-ng-click="toggleCollapsibleMenu()">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar" ng-show="!isCollapsed"></span>
+                    <span class="icon-bar" ng-show="!isCollapsed"></span>
+                    <span class="icon-bar" ng-show="!isCollapsed"></span>
+                    <span class="icon-bar x-mark-backslash" ng-show="isCollapsed"></span>
+                    <span class="icon-bar x-mark-slash" ng-show="isCollapsed"></span>
+                </button>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <nav class="main-nav navbar-collapse" collapse="!isCollapsed" role="navigation">
+
+                <div data-ng-hide="authentication.user">
+
+                    <ul class="nav navbar-nav pull-left">
+                        <li data-ng-repeat="item in menu.items | orderBy: 'position'"
+                            data-ng-if="item.shouldRender(authentication.user);" ng-switch="item.menuItemType"
+                            ui-route="{{item.uiRoute}}" class="{{item.menuItemClass}}" ng-class="{active: ($uiRoute)}"
+                            dropdown="item.menuItemType === 'dropdown'">
+                            <a ng-switch-when="dropdown" class="dropdown-toggle">
+                                <span data-ng-bind="item.title"></span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul ng-switch-when="dropdown" class="dropdown-menu">
+                                <li data-ng-repeat="subitem in item.items | orderBy: 'position'"
+                                    data-ng-if="subitem.shouldRender(authentication.user);"
+                                    ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
+                                    <a href="#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
+                                </li>
+                            </ul>
+                            <a ng-switch-default href="#!/{{item.link}}" data-ng-bind="item.title"></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix user-buttons">
+                        <a ui-route="/signin" href="#!/signin" type="button"
+                           ng-class="{active: $uiRoute, 'btn':true, 'btn-empty-border':true, 'pull-right':true, 'uppercase':true, 'login-button':true}">Log
+                                                                                                                                                        in</a>
+<!--                         <a ui-route="/signup" href="#!/signup" type="button"
+                           ng-class="{active: $uiRoute, 'btn':true, 'btn-empty-border':true, 'pull-right':true, 'uppercase':true, 'login-button':true}">Sign
+                                                                                                                                                        up</a> -->
+                    </div>
+                </div>
+
+            </nav>
+
+            <ul class="nav navbar-nav navbar-right user-menu" data-ng-show="authentication.user">
+                <li class="dropdown" data-ng-class="{'active': showDropDown}">
+                    <a href="#" class="dropdown-toggle" data-ng-click="toggleCustomDropDown()">
+						<span data-ng-bind="authentication.user.name"></span>
+						<span data-ng-if="authentication.user.role === 
+						'scanifly-admin'">(Scanifly Admin)</span>
+						<span data-ng-if="authentication.user.role === 'customer-admin'">({{authentication.user.company.name}} Admin)</span>
+						<span data-ng-if="authentication.user.role === 'customer-systemDesigner'">({{authentication.user.company.name}} System Designer)</span>
+						<b class="caret"></b>
+                    </a>
+
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+

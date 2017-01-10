@@ -1,0 +1,274 @@
+
+
+.user
+{
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.chevron-down
+{
+    padding-top: 3px;
+    padding-left: 3px;
+    font-weight: 900;
+}
+
+.status-header {
+    text-transform: capitalize;
+}
+
+.dropdown-menu
+{
+    display: none;
+    border: none;
+    border-radius: 0;
+    z-index: 999999;
+    margin-right: -18px;
+    background-color: #ffffff;
+}
+
+.dropdown-menu:focus
+{
+    outline: none;
+    min-width: 1px;
+}
+
+.latest-projects
+{
+    border: 1px solid #cdcdcd;
+    padding-left: 30px;
+}
+
+.dashboard-body {
+    padding: 75px 0 140px 0;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+.dashboard-body > .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.dashboard-projects {
+    border: 1px solid #cdcdcd;
+    position: relative;
+    padding: 50px 20px 95px;
+    display: block;
+    float: left;
+    min-height: 495px;
+    width: 75%
+}
+.dashboard-projects table th {
+    text-align: center;
+}
+.dashboard-projects table td {
+    text-align: center;
+}
+.dashboard-projects table tbody td {
+    vertical-align: bottom;
+}
+.dashboard-projects table th:first-child {
+    text-align: left;
+}
+.dashboard-projects table td:first-child {
+    text-align: left;
+}
+
+.dashboard-projects .text-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -72px;
+    margin-left: -170px;
+    font-size: 16px;
+    width: 340px;
+    height: 145px;
+
+}
+.dashboard-projects .text-center b {
+    display: block;
+}
+.dashboard-projects .no-projects {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    margin-left: -103px;
+    font-size: 16px;
+}
+.dashboard-projects .status-icons-listing {
+    display: block;
+}
+.recent-activity h4 {
+    font-size: 16px;
+    font-weight: 700;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #cdcdcd;
+    color: #000;
+
+}
+.add-project {
+    display: inline-block;
+    color: #005a8b;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 15px;
+}
+.add-project .add-project-icon {
+    border: 1px solid #005a8b;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    margin: 0 auto 10px;
+}
+.add-project .add-project-icon:before {
+    content: "+";
+    position: absolute;
+    color: #005a8b;
+    top: -20px;
+    left: 12px;
+    font-size: 60px;
+    font-weight: 100;
+
+}
+
+.section-list-projects .dashboard-projects {
+    width: 100%;
+    min-height: 400px;
+}
+.section-list-projects .dashboard-body .angular-google-map-container {
+    width: 100%;
+}
+
+/************************** dataTable styling ***************************************************************/
+.dashboard-projects table.dataTable.no-footer {
+    border-color: #cdcdcd;
+}
+.dashboard-projects table.dataTable thead th, table.dataTable thead td {
+    border-color: #cdcdcd;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 30px 10px 30px 0px;
+}
+table.dataTable thead th, table.dataTable thead td {
+    padding: 10px 18px 12px 2px;
+}
+table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting {
+    background-image: none;
+}
+table.dataTable.no-footer thead span {
+    position: relative;
+}
+table.dataTable.no-footer thead .sorting span:after {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url("../../../lib/datatables/media/images/sort_both.png") center no-repeat;
+    display: block;
+    top: 4px;
+    right: -19px;
+    z-index: 9;
+
+}
+table.dataTable.no-footer thead .sorting_asc span:after {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url("../../../lib/datatables/media/images/sort_asc.png") center no-repeat;
+    display: block;
+    top: 9px;
+    right: -19px;
+    z-index: 9;
+
+}
+table.dataTable.no-footer thead .sorting_desc span:after {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: url("../../../lib/datatables/media/images/sort_desc.png") center no-repeat;
+    display: block;
+    top: 0;
+    right: -19px;
+    z-index: 9;
+
+}
+table.dataTable tbody tr {
+    text-align: left;
+}
+
+
+
+/***************************************  Projects: List or Map view ***************/
+
+.dashboard-body .view-list {
+    float: right;
+    list-style: none;
+    border-bottom: none;
+    margin-bottom: 30px;
+}
+.view-list li {
+    float: left;
+}
+.dashboard-body .angular-google-map-container {
+    margin: 0 auto;
+    width: 70%;
+}
+@media(max-width: 767px) {
+
+    .dashboard-projects {
+        width: 100%;
+    }
+
+    .projects-nav .my-projects {
+        max-width: 110px;
+    }
+
+
+}
+@media(max-width: 480px) {
+    .section-list-projects .dashboard-body.search-results {
+        padding-top: 50px;
+        min-height: 200px;
+    }
+    .section-list-projects .dashboard-body.search-results .dashboard-projects {
+        min-height: 300px;
+        padding-bottom: 0;
+    }
+    .section-list-projects .dashboard-body.search-results .dashboard-projects .text-center {
+        margin-bottom: 0;
+    }
+    .section-list-projects .dashboard-body {
+        padding-top: 150px;
+    }
+    .dashboard-projects .status-icons-listing {
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+    table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child {
+        padding-left: 0;
+    }
+    table.dataTable.dtr-inline.collapsed > tbody ul {
+        width: 100%;
+    }
+    .dashboard-projects .btn-view-project {
+        width: 100%;
+    }
+}
+@media(max-width: 360px) {
+    .dashboard-projects .text-center {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 130px auto;
+    }
+}

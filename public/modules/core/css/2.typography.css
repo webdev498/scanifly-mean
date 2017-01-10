@@ -1,0 +1,199 @@
+body
+{
+    font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+}
+
+h1
+{
+    font-size: 52px;
+}
+
+h4
+{
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 100;
+    padding-bottom: 20px;
+}
+
+.uppercase
+{
+    text-transform: uppercase;
+}
+
+h2
+{
+    font-size: 36px;
+    font-weight: 300;
+    color: #2e2e2e;
+}
+
+.h3
+{
+    color: #2e2e2e;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.p
+{
+    margin-bottom: 30px;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('/modules/core/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+    url('/modules/core/fonts/icomoon.woff') format('woff'),
+    url('/modules/core/fonts/icomoon.ttf') format('truetype'),
+    url('/modules/core/fonts/icomoon.svg#svgFontName') format('svg');
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dashboard:before {
+    content: "\e610";
+}
+.icon-devices:before {
+    content: "\e611";
+}
+.icon-download:before {
+    content: "\e612";
+}
+.icon-dwg:before {
+    content: "\e60a";
+}
+.icon-skp:before {
+    content: "\e60d";
+}
+.icon-d-model:before {
+    content: "\e60b";
+}
+.icon-drone-images:before {
+    content: "\e60c";
+}
+.icon-report:before {
+    content: "\e60e";
+}
+.icon-site:before {
+    content: "\e60f";
+}
+.icon-trees:before {
+    content: "\e606";
+}
+.icon-airport:before {
+    content: "\e607";
+}
+.icon-high-voltage:before {
+    content: "\e608";
+}
+.icon-highway:before {
+    content: "\e609";
+}
+.icon-all-properties:before {
+    content: "\e600";
+}
+.icon-assessment-approved:before {
+    content: "\e601";
+}
+.icon-resolution-complete:before {
+    content: "\e601";
+}
+.icon-flight-scheduled:before {
+    content: "\e602";
+}
+.icon-flight-successful:before {
+    content: "\e603";
+}
+.icon-location-submitted:before {
+    content: "\e604";
+}
+.icon-resolution-required:before {
+    content: "\e605";
+}
+.icon-activity-icon2:before {
+    content: "\e61a";
+}
+.icon-upload-file:before {
+    content: "\e619";
+}
+.icon-activity-icon:before {
+    content: "\e614";
+}
+.icon-new-user:before {
+    content: "\e615";
+}
+.icon-note-added:before {
+    content: "\e616";
+}
+.icon-project-declined:before {
+    content: "\e617";
+}
+.icon-user-deleted:before {
+    content: "\e618";
+}
+.icon-assessment-complete:before {
+    content: "\e613";
+}
+.icon-view-in-scanifly3D-white:before {
+    content:url(/modules/core/img/WHITE-View-in-Scanifly3D.png);
+}
+.icon-view-in-scanifly3D-grey:before {
+    content:url(/modules/core/img/GREY-View-in-Scanifly3D.png);
+}
+.icon-view-in-scanifly3D-blue:before {
+    content:url(/modules/core/img/BLUE-View-in-Scanifly3D.png);
+}
+
+.icon-size-w-55 {
+    font-size: 55px;
+}
+
+.icon-size-w-35 {
+    font-size: 35px;
+}
+
+.icon-grey {
+    color: #c6c6c6;
+}
+
+.icon-blue {
+    color: #005a8b !important;
+}
+
+.icon-green {
+    color: #49d574 !important;
+}
+
+@media (max-width:767px)
+{
+    .h2
+    {
+        font-size: 28px;
+    }
+}
+
+@media (max-width:480px)
+{
+    h2
+    {
+        font-size: 28px;
+    }
+}

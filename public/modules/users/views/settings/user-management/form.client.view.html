@@ -1,0 +1,32 @@
+<form name="userForm" data-ng-submit="signup(userForm)" data-ng-class="{'submitted': error}" class="signin form-horizontal" novalidate autocomplete="off">
+	<fieldset>
+		<div class="form-group">
+			<input type="text" data-ng-required="true" id="name" name="name" class="form-control" data-ng-model="userForm.credentials.name" placeholder="Name" data-ng-maxlength="50" maxlength="50">
+		</div>
+		<div class="form-group" data-ng-if="acl.hasAccess('user-management-customerType')">
+			<select id="role" data-ng-model="userForm.credentials.role" name="type" class="form-control" data-ng-required="true">
+				<option value="" disabled="disabled">-- Select user type --</option>
+				<option value="customer-admin">Admin</option>
+				<option value="customer-systemDesigner">System Designer</option>
+			</select>
+		</div>
+		<div class="form-group">
+            <input type="email" id="email" clear-field-error block-space  name="email" data-ng-change="userForm.credentials.email = userForm.credentials.email.split(' ').join('')" class="form-control" data-ng-model="userForm.credentials.email" placeholder="Email" data-ng-required="true" data-ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9+]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" data-ng-maxlength="50" maxlength="50">
+		</div>
+		<div class="form-group">
+			<input type="password" id="password" name="password" class="form-control" data-ng-model="userForm.credentials.password" placeholder="Password" data-ng-required="true" data-ng-minlength="6">
+		</div>
+		<div class="text-center form-group button-container">
+			<button type="submit" class="btn btn-large btn-primary col-xxs-12 btn-create-user">Create account</button>
+		</div>
+
+		<div data-ng-show="error" class="bg-danger">
+			{{ error }}
+		</div>
+
+		<div data-ng-show="success" class="bg-success">
+			{{ success }}
+		</div>
+
+	</fieldset>
+</form>

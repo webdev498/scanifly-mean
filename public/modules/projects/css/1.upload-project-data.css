@@ -1,0 +1,523 @@
+.upload-project-data {
+    padding-top: 80px;
+}
+
+.upload-project-data .title-container {
+    padding-left: 0;
+}
+.upload-project-data .title-container h2 {
+    margin: 0;
+}
+.upload-project-data .table-content {
+    border-top: 1px solid #cecece;
+    margin-top: 30px;
+}
+.upload-project-data h4 {
+    margin-top: 40px;
+    margin-bottom: 25px;
+    padding-bottom: 0;
+    font-weight: 700;
+}
+.upload-project-data textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+}
+.upload-project-data .table-content td > span,
+.upload-project-data .table-content th > span {
+    display:block;
+    padding: 10px;
+}
+.upload-project-data .table-content table td, .upload-project-data .table-content table th {
+    text-align: center;
+}
+.upload-project-data .table-content thead th {
+    background-color:#005a8b;
+}
+
+.upload-project-data .table-content thead th > span {
+
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+
+}
+.upload-project-data .table-content tbody tr td:first-child span {
+    font-weight: 700;
+}
+.upload-project-data .table-content tbody tr:nth-child(even)  span {
+    background: #e5eef3;
+}
+.upload-project-data .table-content table {
+    border: 1px solid #3c81a6;
+}
+.upload-project-data .table-content table td {
+    border-left: 2px solid #87b1c8;
+    border-right: 2px solid #87b1c8;
+
+}
+.upload-project-data .table-content table {
+    width:100%;
+}
+.upload-project-data .table-content table td input {
+    width: 70%;
+    border-color: #78FA89!important;
+    height: 100%;
+    border-style: solid;
+
+}
+.upload-project-data .table-content table tbody td span {
+
+    font-size: 16px;
+    color: #000000;
+    text-transform: capitalize;
+
+}
+.upload-project-data .table-content table td span.hover-effect:hover {
+    background-color: #005a8b;
+}
+
+.upload-project-data .upload-buttons input[type="file"] {
+    width: 6.3em \0/IE9;
+}
+
+.upload-project-data .upload-button {
+    Height: 26px;
+    line-height: 30px;
+    padding: 0 10px;
+    background: #CCC;
+    appearance: button;
+    -moz-appearance: button; /* Firefox */
+    -webkit-appearance: button; /* Safari and Chrome */
+    position: relative;
+    text-align: center;
+    top: 7px;
+    cursor: pointer;
+}
+
+.upload-project-data .sel-file {
+    padding: 1px 5px;
+    font-size: smaller;
+    color: grey;
+}
+
+.upload-project-data .response {
+    padding: 0;
+    padding-top: 10px;
+    margin: 3px 0;
+    clear: both;
+}
+
+.upload-project-data .response .sel-file li,
+.upload-project-data .response .reqh {
+    color: blue;
+    padding-bottom: 5px;
+}
+
+.upload-project-data fieldset {
+    border: 1px solid #DDD;
+    width: 420px;
+    padding: 10px;
+    line-height: 23px;
+}
+
+.upload-project-data .progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.upload-project-data .progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+
+.upload-project-data .drop-box {
+    background: #F8F8F8;
+    border: 1px dashed #005a8b !important;
+    width: 100%;
+    min-height: 84px;
+    text-align: center;
+    padding: 27px 15px;
+    margin-bottom: 20px;
+}
+
+.upload-project-data .drop-box i {
+    font-size: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 8px;
+    color: black;
+}
+
+.upload-project-data .drop-box i {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.upload-project-data .up-buttons {
+    float: left;
+}
+
+.upload-project-data .drop-box.dragover {
+    border: 5px dashed blue;
+}
+
+.upload-project-data .drop-box.dragover-err {
+    border: 5px dashed red;
+}
+
+/* for IE*/
+.upload-project-data .js-fileapi-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.upload-project-data table button {
+
+    padding: 7px 11px;
+    width: 10%;
+    min-width: 39px;
+
+}
+
+.upload-project-data .ng-v {
+    float: right;
+}
+
+.upload-project-data .thumb {
+    float: left;
+    width: 18px;
+    height: 18px;
+    padding-right: 10px;
+}
+
+.upload-project-data form .thumb {
+    width: 24px;
+    height: 24px;
+    float: none;
+    position: relative;
+    top: 7px;
+}
+
+.upload-project-data form .progress {
+    line-height: 15px;
+}
+
+.upload-project-data .edit-area {
+    font-size: 14px;
+    background: black;
+    color: #f9f9f9;
+    padding: 5px 1px;
+}
+
+.upload-project-data .edit-div {
+    font-size: smaller;
+}
+
+.upload-project-data .CodeMirror {
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.upload-project-data .err {
+    font-size: 12px;
+    color: #C53F00;
+    margin: 15px;
+    padding: 15px;
+    background-color: #F0F0F0;
+    border: 1px solid black;
+}
+
+.upload-project-data :not(output):-moz-ui-invalid {
+    box-shadow: none;
+}
+
+.upload-project-data .preview {
+    padding-top: 30px;
+    clear: both;
+}
+
+
+
+.upload-project-data .image-thumbnail {
+    width: 151px;
+    height: 151px;
+    margin: 0 10px 15px 0;
+    float: left;
+    text-align: center;
+    border: 1px solid #cecece;
+    position: relative;
+    line-height: 142px;
+    overflow: hidden;
+}
+
+.upload-project-data .image-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.upload-project-data .image-thumbnail .remove-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.upload-project-data .image-thumbnail:hover .remove-image {
+    display: block;
+
+}
+.upload-project-data .image-thumbnail .remove-image span {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #7C7C7C;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -30px;
+    z-index: 9;
+    line-height: 20px;
+    cursor: pointer;
+}
+.upload-project-data .image-thumbnail .remove-image .fa {
+    color: #ffffff;
+    font-size: 40px;
+    display: inline-block;
+    margin-top: 9px;
+}
+.upload-project-data .top-down-image .image-thumbnail {
+    width: 100%;
+    height: auto;
+    border: none;
+    text-align: center;
+    margin-right: 0;
+
+}
+.upload-project-data .top-down-image {
+    overflow: hidden;
+}
+.upload-project-data .top-down-image img {
+    vertical-align: middle;
+    max-width: initial;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    display: inline-block;
+}
+.upload-project-data .file-thumbnail {
+    padding: 8px 0;
+}
+.upload-project-data .file-thumbnail i {
+    margin-right: 10px;
+    font-size: 19px;
+}
+.upload-project-data .file-thumbnail .fa {
+    color: red;
+    margin-left: 10px;
+    font-size: 19px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.upload-project-data .file-thumbnail i, .upload-project-data .file-thumbnail .fa, .upload-project-data .file-thumbnail span {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.upload-project-data .btn-upload-data {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.upload-project-data .emptySpaceTableCell {
+    min-height: 42px;
+}
+
+
+/******************* Upload Pdf Form **************************/
+.user-input-container > div {
+    float: none;
+    padding-left: 0;
+}
+.user-input-container h5 {
+    font-size: 16px;
+}
+.user-input-container .site-assessor-container {
+    margin-top: 50px;
+    padding-right: 0;
+}
+.user-input-container .site-assessor-container input {
+    width: 300px;
+    margin-left: 15px;
+}
+.user-input-container .mag-dec-container {
+    clear: left;
+    margin-top: 15px;
+}
+.user-input-container .mag-dec-container input {
+    width: 100px;
+    margin-left: 90px;
+}
+
+.roof-image-container .image-thumbnail, .roof-notation-image-container .image-thumbnail {
+    width: 100%;
+    height: 280px;
+}
+.roof-data-container > div {
+    padding-left: 0;
+}
+.roof-main-image input {
+    margin-bottom: 20px;
+    width: 100px;
+    margin-left: 15px;
+}
+
+.roof-main-image .image-thumbnail {
+    width: 100%;
+    min-height: 500px;
+    height: auto!important;
+
+
+}
+.roof-main-image .image-thumbnail img {
+    width: 100%;
+}
+.individual-image {
+    margin: 0 10px 15px 0;
+}
+.individual-image .image-thumbnail {
+    width: auto;
+    height: auto;
+    margin-right: 0;
+    max-width: 320px;
+    max-height: 320px;
+    overflow: hidden;
+
+
+}
+.diagrams-container {
+    display: flex;
+    display: -webkit-flex;
+}
+.individual-image input[type="text"]{
+    width: 45px;
+    padding: 0 5px;
+}
+.individual-image span {
+    margin-right: 7px;
+}
+.individual-image:last-child {
+    margin-right: 0;
+}
+.image-user-input span, .image-user-input input {
+    display: inline-block;
+    font-size: 13px;
+}
+.image-user-input span {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.sub-title {
+    font-size: 16px;
+}
+
+
+
+.model-container {
+    padding-left: 0;
+    word-wrap: break-word;
+}
+@media(max-width: 1200px) {
+    .upload-project-data .table-content table td input {
+        width: 65%;
+    }
+}
+@media(max-width: 991px) {
+    .upload-project-data .table-content table td input {
+        width: 55%;
+    }
+}
+@media(max-width: 767px) {
+
+    .upload-project-data .table-content table td input {
+        width: 55%;
+    }
+    .upload-project-data .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .diagrams-container {
+        display: block;
+        text-align: left;
+    }
+    .individual-image {
+        display: inline-block;
+        width: 45%;
+    }
+    .individual-image .image-user-input {
+        text-align: left;
+    }
+    .sketchup-files-container {
+        float: none!important;
+    }
+
+}
+@media(max-width: 660px) {
+    .upload-project-data .table-content table td input {
+        width: 45%;
+    }
+}
+@media(max-width: 546px) {
+    .upload-project-data .table-content table td input {
+        width: 35%;
+    }
+}
+
+@media(max-width: 480px) {
+
+    .upload-project-data .table-content table td input {
+        width: 45%;
+    }
+    .upload-project-data table button {
+        padding: 7px 5px;
+        width: 7%;
+        min-width: 25px;
+    }
+    .upload-project-data .top-down-image .image-thumbnail {
+        width: 100%;
+        height: auto;
+    }
+    .upload-project-data .image-thumbnail {
+        width: 139px;
+        height: 139px
+    }
+}
+@media(max-width: 420px) {
+    .upload-project-data .table-content table td input {
+        width: 35%;
+    }
+}
+
+.upload-project-data .uploaded-image-preview {
+    max-width: 200px;
+    display: block;
+}
+
+.upload-project-data .uploaded-image-preview span {
+    padding: 10px;
+    border: 1px solid #c6c6c6;
+}
+@media(max-width: 360px) {
+    .individual-image {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+}

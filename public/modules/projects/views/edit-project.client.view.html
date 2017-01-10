@@ -1,0 +1,204 @@
+<section class="section-projects">
+    <projects-header></projects-header>
+</section>
+
+<section class="section section-new-scan">
+
+    <div class="container">
+        <div class="row">
+
+            <h2 class="title col-md-12" id="request-scan">Edit Project</h2>
+
+            <form class="form-horizontal col-md-12 new-scan-form" accessible-form data-ng-class="{'submitted':updateProject.$submitted}" name="updateProject" id="updateProject"  data-ng-submit="update()" novalidate>
+                <fieldset>
+                    <div class="col-md-5">
+                        <p>Project Name</p>
+                        <div class="form-group col-md-12 margin40">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.name" id="name" class="form-control" placeholder="Enter Project Name" data-ng-required="true" data-ng-maxlength="50" maxlength="50">
+                            </div>
+                        </div>
+
+                        <p>Owner Details</p>
+                        <div class="form-group pull-left col-md-6 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.firstName" id="firstName" class="form-control" placeholder="First Name" data-ng-required="true" data-ng-maxlength="50" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group pull-right col-md-6 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.lastName" id="lastName" class="form-control" placeholder="Last Name" data-ng-required="true" data-ng-maxlength="50" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group pull-left col-md-6 col-sm-6 col-xs-6 col-xxs-12 ">
+                            <div class="controls">
+                                <input type="email" data-ng-model="data.email" id="email" class="form-control" placeholder="Email" data-ng-pattern="/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/" data-ng-required="true" data-ng-maxlength="50" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="form-group pull-right col-md-6 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.phone" id="phone" class="form-control" placeholder="Phone Number" data-ng-required="true" data-ng-pattern="/^[0-9]{3}(-)?[0-9]{3}(-)?[0-9]{4}$/">
+                            </div>
+                        </div>
+
+                        <div class="margin40"></div>
+
+                        <p>Site Info</p>
+                        <div class="form-group pull-left col-md-6 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.street" id="street" class="form-control" placeholder="Street" data-ng-required="true" data-ng-maxlength="80" maxlength="80">
+                            </div>
+                        </div>
+                        <div class="form-group pull-right col-md-6 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.city" id="city" class="form-control" placeholder="City" data-ng-required="true" data-ng-maxlength="80" maxlength="80">
+                            </div>
+                        </div>
+                        <div class="form-group pull-left col-md-6 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="controls">
+                                <select data-ng-model="data.state" class="form-control" data-ng-required="true">
+                                    <option value="" disabled="disabled" selected="selected">-- Select state --</option>
+                                    <option data-ng-repeat="state in states" value="{{state.name}}-{{state.abbreviation}}">{{state.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group pull-right col-md-6 col-sm-6 col-xs-6 col-xxs-12">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.zip" id="zip" class="form-control" placeholder="Zip Code" data-ng-required="true" data-ng-pattern="/^[0-9]{5}(-[0-9]{4})?$/" data-ng-maxlength="30" maxlength="30">
+                            </div>
+                        </div>
+
+						<div class="margin40"></div>						
+						
+						<p class="monthly">Monthly kWh Usage</p>
+						<div>Enter 12 months of kWh usage (optional)</div>
+						<div><br></div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.month1" name="kWh" id="month1" class="form-control" placeholder="Month 1" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+						</div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+						    <div class="controls">
+                                <input type="text" data-ng-model="data.month2" name="kWh" id="month2" class="form-control" placeholder="Month 2" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+                        </div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.month3" name="kWh" id="month3" class="form-control" placeholder="Month 3" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+						</div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+						    <div class="controls">
+                                <input type="text" data-ng-model="data.month4" name="kWh" id="month4" class="form-control" placeholder="Month 4" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+                        </div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.month5" name="kWh" id="month5" class="form-control" placeholder="Month 5" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+						</div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+						    <div class="controls">
+                                <input type="text" data-ng-model="data.month6" name="kWh" id="month6" class="form-control" placeholder="Month 6" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+                        </div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.month7" name="kWh" id="month7" class="form-control" placeholder="Month 7" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+						</div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+						    <div class="controls">
+                                <input type="text" data-ng-model="data.month8" name="kWh" id="month8" class="form-control" placeholder="Month 8" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+                        </div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.month9" name="kWh" id="month9" class="form-control" placeholder="Month 9" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+						</div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+						    <div class="controls">
+                                <input type="text" data-ng-model="data.month10" name="kWh" id="month10" class="form-control" placeholder="Month 10" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+                        </div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+                            <div class="controls">
+                                <input type="text" data-ng-model="data.month11" name="kWh" id="month11" class="form-control" placeholder="Month 11" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+						</div>
+						<div class="form-group pull-left col-md-4 col-sm-4 col-xs-4 col-xxs-6">
+						    <div class="controls">
+                                <input type="text" data-ng-model="data.month12" name="kWh" id="month12" class="form-control" placeholder="Month 12" data-ng-required="false" data-ng-pattern="/^[0-9]{0,}$/" data-ng-maxlength="10" maxlength="10" ng-change="totalkWh()">
+                            </div>
+                        </div>
+						<input type="hidden" data-ng-model="data.annual" value="{{ annual }}" data-ng-required="false">
+						<div data-ng-if="data.annual">Total Annual kWh: {{data.annual}}</div>
+
+                        <div class="margin40"></div>
+
+<!--                        <span><strong>All Fields are required!</strong></span>		-->
+
+                        <div data-ng-show="updateProject.$submitted && updateProject.$invalid" class="bg-danger">
+                            <strong>Please fill out the values</strong>
+                        </div>
+
+                    </div>
+
+                    <create-project-map></create-project-map>
+
+                    <div class="margin40"></div>
+                    <!-- Modification By Me ( Joshua Thijssen )
+                    <div class="col-md-12 border-top clearfix">
+                        <p>Property Details</p>
+                        <div class="checkbox-container form-group pull-left col-md-6 col-sm-12 col-xs-12">
+                            <input type="checkbox" data-ng-model="data.nearTrees" id="nearTress" class="controls form-control"/>
+                            <label>
+                                The property has a lot of trees.
+                                <i class="icon-trees icon-size-w-35 icon-grey" data-ng-class="{'icon-blue':data.nearTrees}"></i>
+                            </label>
+                        </div>
+                        <div class="checkbox-container form-group pull-left col-md-6 col-sm-12 col-xs-12">
+                            <input type="checkbox" data-ng-model="data.nearAirport" id="nearAirport" class="controls form-control"/>
+                            <label>
+                                The property is within 1 mile radius from an airport.
+                                <i class="icon-airport icon-size-w-35 icon-grey" data-ng-class="{'icon-blue':data.nearAirport}"></i>
+                            </label>
+                        </div>
+                        <div class="checkbox-container form-group pull-left col-md-6 col-sm-12 col-xs-12">
+                            <input type="checkbox" data-ng-model="data.nearHighVoltage" id="nearHighVoltage" class="controls form-control"/>
+                            <label>
+                                The property is near high voltage lines.
+                                <i class="icon-high-voltage icon-size-w-35 icon-grey" data-ng-class="{'icon-blue':data.nearHighVoltage}"></i>
+                            </label>
+                        </div>
+                        <div class="checkbox-container form-group pull-left col-md-6 col-sm-12 col-xs-12">
+                            <input type="checkbox" data-ng-model="data.nearHighway" id="nearHighway" class="controls form-control"/>
+                            <label>
+                                The property is near an interstate highway or a main road.
+                                <i class="icon-highway icon-size-w-35 icon-grey" data-ng-class="{'icon-blue':data.nearHighway}"></i>
+                            </label>
+                        </div>
+                    </div>
+                    -->
+
+<!-- NOTES -->					
+<!-- 					<div class="col-md-12 border-top clearfix">
+                        <p>Notes</p>
+						<div class="add-note-form-container" data-ng="addNoteForm.value" data-ng-controller="NotesController">
+							<div data-ng-include="'modules/projects/views/notes/new-scan-note-form.client.view.html'"></div>
+						</div>
+					</div> -->
+
+
+                    <div class="form-group col-md-12 pull-left">
+                        <input type="submit" class="btn btn-primary btn-lg" value="Update Project">
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</section>

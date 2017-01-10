@@ -1,0 +1,158 @@
+.feature-icon {
+    width: 100px;
+}
+
+.site-info {
+    width: 130px;
+    height: 100px;
+}
+
+.feature {
+    text-align: center;
+    font-size: 12px;
+    padding-left: 40px;
+    padding-right: 40px;
+    height: 230px;
+}
+.dotted-features-list {
+    padding-left: 25px;
+}
+.features {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.features img {
+    height: 95px;
+}
+
+.section-features {
+    padding-bottom: 60px;
+}
+
+.section-access {
+    text-align: center;
+    background: #005a8b;
+    color: #ffffff;
+    padding: 60px 0;
+}
+
+.section-access h2 {
+    color: #ffffff;
+    padding-bottom: 30px;
+    margin: 0;
+}
+
+.section-access img {
+    height: 95px;
+}
+
+.access_col {
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.section-report {
+    padding: 60px 0;
+}
+
+.section-report h2 {
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+.section-report img {
+    width: 300px;
+    height: 300px;
+}
+.section-report .viewshed-image {
+    width: auto;
+}
+
+.section-report img.feature-img-no-width {
+    width: auto;
+    height: auto
+}
+
+.page-title {
+    text-align: center;
+}
+
+.detail {
+    padding: 60px 0 60px 0;
+    border-bottom: 1px solid #cecece;
+}
+
+.detail:first-child {
+    padding: 0 0 60px 0;
+}
+
+.detail:last-child {
+    padding: 60px 0 0 0;
+    border: none;
+}
+
+.detail-text {
+    height: 300px;
+    text-align: left;
+    padding-top: 50px;
+    font-size: 18px;
+}
+
+.section-features .h4 {
+    font-weight: 600;
+}
+
+.section-access .h4 {
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .acces_col {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .detail-text {
+        height: auto;
+        padding: 35px;
+    }
+
+    .detail {
+        padding: 40px 0 10px 0;
+
+    }
+
+    .detail:first-child {
+        padding: 0 0 10px 0;
+    }
+
+    .detail:last-child {
+        padding: 40px 0 0 0;
+    }
+
+    .section-report .detail > div {
+        float: none!important;
+    }
+
+    .section-features, .section-report {
+        padding-bottom: 0;
+    }
+
+
+}
+
+@media (max-width: 990px) {
+    .access_col {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media(max-width: 360px) {
+    .section-report .viewshed-image {
+
+        height: auto;
+    }
+}

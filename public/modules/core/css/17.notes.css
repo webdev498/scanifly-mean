@@ -1,0 +1,47 @@
+.notes-container h3 {
+
+    margin-bottom: 30px;
+}
+.notes-container .form-group {
+    margin: 0;
+    padding: 0;
+}
+.notes-container .form-horizontal {
+    float: none;
+    padding: 0;
+}
+.notes-container textarea {
+    height: 100px;
+    margin-bottom: 20px;
+}
+.notes-container .btn-primary {
+    text-transform: uppercase;
+}
+.posted-notes ul {
+    list-style: none;
+    padding-left: 0;
+}
+.posted-notes .author {
+    margin-bottom: 10px;
+}
+.posted-notes .note {
+    margin-bottom: 5px;
+}
+
+.posted-notes .format-note {
+    border: none;
+    background-color: #FFFFFF !important;
+    padding: 0;
+    margin: 0;
+    font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+}
+.posted-notes .format-note p {
+    overflow: hidden;
+}
+@media(max-width: 767px) {
+    .notes-container {
+        padding: 0 10px !important;
+    }
+}

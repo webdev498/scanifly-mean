@@ -1,0 +1,54 @@
+<section class="section-projects">
+	<projects-header></projects-header>
+</section>
+
+<section data-ng-init="find()" class="clearfix section-activity">
+
+	<section class="dashboard-body col-md-12 clearfix">
+
+		<div class="container">
+			<div class="row">
+
+				<div class="recent-activity">
+					<h2 class="title text-center">Activity</h2>
+
+					<div class="list-group">
+
+						<div data-ng-if="acl.hasAccess('new-scan')" class="text-center no-activity" data-ng-hide="activities.length">
+							<p>You currently have no activity. Get started below!</p>
+							<a class="add-project" ui-sref="create-new-scan"><span class="add-project-icon"></span>REQUEST NEW SCAN</a>
+						</div>
+						<p class="no-activity" data-ng-if="!acl.hasAccess('new-scan')" data-ng-hide="activities.length">You currently have no activity.</p>
+
+
+						<div data-ng-repeat="activity in activities" class="activity">
+							<div class="activity-comment clear clearfix" data-ng-if="activity.type=='comments'" data-ng-include="'modules/projects/views/activities/comments.client.view.html'"></div>
+							<div class="activity-project-created clear clearfix" data-ng-if="activity.type=='project-created'" data-ng-include="'modules/projects/views/activities/project-created.client.view.html'"></div>
+							<div class="activity-project-updated clear clearfix" data-ng-if="activity.type=='project-updated'" data-ng-include="'modules/projects/views/activities/project-updated.client.view.html'"></div>
+							<div class="activity-project-data-updated clear clearfix" data-ng-if="activity.type=='project-data-updated'" data-ng-include="'modules/projects/views/activities/project-data-updated.client.view.html'"></div>
+							<div class="activity-project-declined clear clearfix" data-ng-if="activity.type=='project-declined'" data-ng-include="'modules/projects/views/activities/project-declined.client.view.html'"></div>
+							<div class="activity-resolution-changed clear clearfix" data-ng-if="activity.type=='resolution-changed'" data-ng-include="'modules/projects/views/activities/resolution-changed.client.view.html'"></div>
+							<div class="activity-status-changed clear clearfix" data-ng-if="activity.type=='status-changed'" data-ng-include="'modules/projects/views/activities/status-changed.client.view.html'"></div>
+							<div class="activity-user-created clear clearfix" data-ng-if="activity.type=='user-created'" data-ng-include="'modules/projects/views/activities/user-created.client.view.html'"></div>
+							<div class="activity-user-deleted clear clearfix" data-ng-if="activity.type=='user-deleted'" data-ng-include="'modules/projects/views/activities/user-deleted.client.view.html'"></div>
+                            <div class="activity-user-activated clear clearfix" data-ng-if="activity.type=='user-activated'" data-ng-include="'modules/projects/views/activities/user-activated.client.view.html'"></div>
+                            <div class="activity-company-created clear clearfix" data-ng-if="activity.type=='company-created'" data-ng-include="'modules/projects/views/activities/company-created.client.view.html'"></div>
+							<div class="activity-status-changed clear clearfix" data-ng-if="activity.type=='flight-rescheduled'" data-ng-include="'modules/projects/views/activities/flight-rescheduled.client.view.html'"></div>
+                            <div class="activity-assessment-complete clear clearfix" data-ng-if="activity.type=='download-report'" data-ng-include="'modules/projects/views/activities/download-report.client.view.html'"></div>
+							<div class="activity-assessment-complete clear clearfix" data-ng-if="activity.type=='site-assessment-acknowledged'" data-ng-include="'modules/projects/views/activities/site-assessment-acknowledged.client.view.html'"></div>
+						</div>
+					</div>
+
+				</div>
+
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-primary" data-ng-click="updateActivitiesLimit()" data-ng-hide="disableLoadMore">Load More</button>
+                </div>
+			</div>
+
+		</div>
+
+	</section>
+
+
+</section>
